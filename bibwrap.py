@@ -12,6 +12,9 @@ class BiBlerWrapper(object):
     def addEntry(self, bibtex):
         '''
         Takes a @bibtex string and outputs the corresponding EntryDict
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: L{EntryDict}.
         '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
@@ -21,6 +24,12 @@ class BiBlerWrapper(object):
 
     @staticmethod
     def bibtexToSQL(self,bibtex):
+        '''
+        Takes a @bibtex string and outputs the corresponding EntryDict
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: SQL file.
+        '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
         bibtex=BiBlerApp.formatBibTeX(self, bibtex)

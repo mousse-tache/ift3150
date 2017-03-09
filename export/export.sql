@@ -30,4 +30,4 @@ ALTER TABLE PaperAuthor
     ADD CONSTRAINT FK_Author FOREIGN KEY (authorId) REFERENCES Author (id),
     ADD CONSTRAINT FK_Paper FOREIGN KEY (paperId) REFERENCES Paper (id);
 
-INSERT INTO Paper (bibtexKey,title,doi,bibtex,preview) VALUES (N'Adams1978', N'H2G2', N'', N'@BOOK{Adams1978,  author = {Adams},  publisher = {Bookclub},  title = {H2G2},  year = {1978},  volume = {1}}', N'Adams. <i>H2G2</i>. 1. Bookclub (1978).');
+INSERT INTO Paper (bibtexKey,title,doi,bibtex,preview) VALUES (N'Douglas+Adams1978', N'Hitchikers+Guide+to+the+Galaxy', N'', N'@BOOK{Douglas+Adams1978,  author = {Douglas+Adams},  title = {Hitchikers+Guide+to+the+Galaxy},  year = {1978}}', N'Douglas+Adams. <i>Hitchikers+Guide+to+the+Galaxy</i>. (1978).');
