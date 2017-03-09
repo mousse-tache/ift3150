@@ -4,7 +4,7 @@ abspath = os.path.dirname("/var/www/bibweb/")
 sys.path.append(abspath)
 os.chdir(abspath)
 import web
-from helpers import Helpers
+from bibwrap import BiBlerWrapper
 render = web.template.render('templates', cache=False)
 
 urls = (
@@ -15,10 +15,10 @@ urls = (
     '/entrytobibtex/(.*)', 'EntryToBibTeX',
     '/previewentry/(.*)', 'PreviewEntry',
     '/setdoi/(.*)', 'SetDOI',
+    '/validateentry/(.*)', 'ValidateEntry',
+    '/import/(.*)', 'Import',
     '/', 'index'
 )
-
-
 
 #TODO: Add methods for ReLiS. Import, Format, Preview?, toSQL,
 
@@ -39,23 +39,31 @@ class Parse:
 #BibTeX example: @book{,author={Adams},title={H2G2},year={1978}}
 class AddEntry:
     def GET(self, code):
-        return Helpers.addEntry(self, code)
+        return BiBlerWrapper.addEntry(self, code)
 
 class EntryToBibTeX:
     def GET(self, code):
-        return Helpers.entryToBibTeX(self, code)
+        return BiBlerWrapper.entryToBibTeX(self, code)
 
 class BibTeXtoSQL:
     def GET(self, code):
-        return Helpers.bibtexToSQL(self, code)
+        return BiBlerWrapper.bibtexToSQL(self, code)
 
 class PreviewEntry:
     def GET(self, code):
-        return Helpers.previewEntry(self,code)
+        return BiBlerWrapper.previewEntry(self,code)
 
 class SetDOI:
     def GET(self, code):
-        return Helpers.setDOI(self, code)
+        return BiBlerWrapper.setDOI(self, code)
+
+class ValidateEntry:
+    def GET(self, code):
+        return BiBlerWrapper.validateEntry(self, code)
+class Import:
+    def GET(self, code):
+        return 'Unsupported'
+        
 '''class parse:
     def GET(self, code):
         return BibTeXParser.BibTeXParser(self, code).parse(self).validate(self)
