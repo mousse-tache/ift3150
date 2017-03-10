@@ -1,9 +1,14 @@
+'''
+@author: Félix Bélanger-Robillard
+'''
 #-*- coding: utf-8 -*-
 #import sys, os
 #abspath = os.path.dirname("/var/www/bibweb/app/")
 #sys.path.append(abspath)
 #os.chdir(abspath)
-from bibler.app.user_interface import BiBlerApp
+from app.user_interface import BiBlerApp
+
+
 
 class BiBlerWrapper(object):
     @staticmethod
@@ -35,7 +40,58 @@ class BiBlerWrapper(object):
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
-        
+    @staticmethod
+    def bibtexToCSV(self,bibtex):
+        '''
+        Takes a BibTeX string and outputs a .csv file
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: SQL file.
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp.addEntry(bibtex)
+        path="/var/www/bibweb/export/export.csv"
+        biblerapp.exportFile(path, 'csv')
+        try:
+            f = open("/var/www/bibweb/export/export.csv", 'r')
+            return f.read()
+        except:
+            return 'Error' # you can send an 404 error here if you want
+    @staticmethod
+    def bibtexTobibtex(self,bibtex):
+        '''
+        Takes a BibTeX string and outputs a .bib file
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: SQL file.
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp.addEntry(bibtex)
+        path="/var/www/bibweb/export/export.bib"
+        biblerapp.exportFile(path, 'bib')
+        try:
+            f = open("/var/www/bibweb/export/export.bib", 'r')
+            return f.read()
+        except:
+            return 'Error' # you can send an 404 error here if you want
+    @staticmethod
+    def bibtexToHTML(self,bibtex):
+        '''
+        Takes a BibTeX string and outputs a .html file
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: SQL file.
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp.addEntry(bibtex)
+        path="/var/www/bibweb/export/export.html"
+        biblerapp.exportFile(path, 'html')
+        try:
+            f = open("/var/www/bibweb/export/export.html", 'r')
+            return f.read()
+        except:
+            return 'Error' # you can send an 404 error here if you want
+    
     @staticmethod
     def previewEntry(self,bibtex):
         '''

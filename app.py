@@ -1,3 +1,6 @@
+'''
+@author: Félix Bélanger-Robillard
+'''
 #-*- coding: utf-8 -*-
 import sys, os
 abspath = os.path.dirname("/var/www/bibweb/")
@@ -11,6 +14,9 @@ urls = (
     '/formatbibtex/(.*)', 'FormatBibTeX',
     '/addentry/(.*)', 'AddEntry',
     '/bibtextosql/(.*)', 'BibTeXtoSQL',
+    '/bibtextocsv/(.*)', 'BibTeXtoCSV',
+    '/bibtextohtml/(.*)', 'BibTeXtoHTML',
+    '/bibtextobibtex/(.*)', 'BibTeXtoBibTeX',
     '/previewentry/(.*)', 'PreviewEntry',
     '/validateentry/(.*)', 'ValidateEntry',
     '/help/', 'index'
@@ -39,6 +45,18 @@ class AddEntry:
 class BibTeXtoSQL:
     def GET(self, code):
         return BiBlerWrapper.bibtexToSQL(self, code)
+
+class BibTeXtoCSV:
+    def GET(self, code):
+        return BiBlerWrapper.bibtexToCSV(self, code)
+
+class BibTeXtoHTML:
+    def GET(self, code):
+        return BiBlerWrapper.bibtexToHTML(self, code)
+
+class BibTeXtoBibTeX:
+    def GET(self, code):
+        return BiBlerWrapper.bibtexTobibtex(self, code)
 
 class PreviewEntry:
     def GET(self, code):
