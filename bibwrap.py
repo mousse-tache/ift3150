@@ -3,36 +3,30 @@
 #abspath = os.path.dirname("/var/www/bibweb/app/")
 #sys.path.append(abspath)
 #os.chdir(abspath)
-from app.user_interface import BiBlerApp
-from app.bibtex_parser import BibTeXParser
-from app.manager import ReferenceManager
+from bibler.app.user_interface import BiBlerApp
 
 class BiBlerWrapper(object):
     @staticmethod
     def addEntry(self, bibtex):
         '''
-        Takes a @bibtex string and outputs the corresponding EntryDict
+        Takes a BibTeX string and outputs the corresponding EntryDict
         @type bibtex: L{str}
         @param bibtex: The BibTeX string to be processed.
         @return: L{EntryDict}.
         '''
-        biblerapp=BiBlerApp()
-        biblerapp.preferences.overrideKeyGeneration = True
-        bibtex=BiBlerApp.formatBibTeX(self, bibtex)
-        entryid=biblerapp.addEntry(bibtex)
-        return biblerapp.getEntry(entryid)
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp.addEntry(bibtex)
+        return biblerapp.iterAllEntries()
 
     @staticmethod
     def bibtexToSQL(self,bibtex):
         '''
-        Takes a @bibtex string and outputs the corresponding EntryDict
+        Takes a BibTeX string and outputs a SQL table
         @type bibtex: L{str}
         @param bibtex: The BibTeX string to be processed.
         @return: SQL file.
         '''
-        biblerapp=BiBlerApp()
-        biblerapp.preferences.overrideKeyGeneration = True
-        bibtex=BiBlerApp.formatBibTeX(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         path="/var/www/bibweb/export/export.sql"
         biblerapp.exportFile(path, 'sql')
@@ -40,40 +34,48 @@ class BiBlerWrapper(object):
             f = open("/var/www/bibweb/export/export.sql", 'r')
             return f.read()
         except:
-            return '' # you can send an 404 error here if you want
+            return 'Error' # you can send an 404 error here if you want
         
-
-    @staticmethod
-    def entryToBibTeX(self, entry):
-        return Utilities.addEntry(self, entry).toBibTeX()
-
     @staticmethod
     def previewEntry(self,bibtex):
-        biblerapp=BiBlerApp()
-        biblerapp.preferences.overrideKeyGeneration = True
-        bibtex=BiBlerApp.formatBibTeX(self, bibtex)
+        '''
+        Takes a BibTeX string and outputs an HTML preview
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: str.
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         entryid = biblerapp.addEntry(bibtex)
         return biblerapp.previewEntry(entryid)
 
     @staticmethod
-    def setDOI(self, entryBibTeX):
-        entryBibTeX = Utilities.addEntry(self, entryBibTeX)
-        manager=ReferenceManager()
-        return manager.add(self, entryBibTeX)
-        
-    @staticmethod
     def validateEntry(self, bibtex):
-        biblerapp=BiBlerApp()
-        biblerapp.preferences.overrideKeyGeneration = True
-        bibtex=BiBlerApp.formatBibTeX(self, bibtex)
+        '''
+        Takes a BibTeX string and outputs 1 if the entry is valid or 0 if it's not
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: boolean .
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
-        return biblerapp.validateAllEntries() 
+        return biblerapp.validateAllEntries()
+    
     @staticmethod
-    def  importFile(self, code):
+    def formatBibtex(self, bibtex):
+        '''
+        Takes a BibTeX string and outputs a formatted BibTeX
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: boolean .
+        '''
+        return BiBlerApp.formatBibTeX(self, bibtex)
+
+    @staticmethod
+    def __getBiblerApp(self, bibtex):
+        '''
+        Returns an instance of BiblerApp with propoer settings and an entry based on the bibtex given
+        '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
         bibtex=BiBlerApp.formatBibTeX(self, bibtex)
-        biblerapp.addEntry(bibtex)
-        path="/var/www/bibweb/export/export"
-        biblerapp.exportFile(path, 'sql')
-        
+        return biblerapp

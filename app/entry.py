@@ -99,7 +99,8 @@ class Entry(object):
                                FieldName.Key: Field(FieldName.Key)}
         self.additionalFields = {FieldName.DOI: Field(FieldName.DOI),
                                  FieldName.Paper: Field(FieldName.Paper),
-                                 FieldName.Comment: Field(FieldName.Comment)}
+                                 FieldName.Comment: Field(FieldName.Comment),
+                                 FieldName.Note: Field(FieldName.Note)}
         self.importantFields = []   # contains keys from optionalFields
         
     def getId(self):
@@ -580,7 +581,8 @@ class Article(Entry):
                                     FieldName.Number: Field(FieldName.Number),
                                     FieldName.Pages: Pages(FieldName.Pages),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
         self.importantFields = [FieldName.Volume, FieldName.Pages]
     
     def getContributors(self):
@@ -676,7 +678,8 @@ class Book(Entry):
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Edition: Field(FieldName.Edition),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
     
     def getContributors(self):
         if not self.getField(FieldName.Author).isEmpty():
@@ -821,7 +824,8 @@ class Booklet(Entry):
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Year: Year(),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
     
     def getContributors(self):
         return self.getField(FieldName.Author).contributors
@@ -918,7 +922,8 @@ class Inbook(Book):
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Edition: Field(FieldName.Edition),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
     
     def getContributors(self):
         if not self.getField(FieldName.Author).isEmpty():
@@ -1067,7 +1072,8 @@ class Incollection(Entry):
                                     FieldName.Edition: Field(FieldName.Edition),
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
         self.importantFields = [FieldName.Pages]
     
     def getContributors(self):
@@ -1224,7 +1230,8 @@ class Inproceedings(Entry):
                                     FieldName.Publisher: Field(FieldName.Publisher),
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
         self.importantFields = [FieldName.Volume, FieldName.Pages, FieldName.Publisher]
     
     def getContributors(self):
@@ -1377,7 +1384,8 @@ class Manual(Entry):
                                     FieldName.Address: Field(FieldName.Address),
                                     FieldName.Year: Year(),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
         self.importantFields = [FieldName.Author, FieldName.Year]
     
     def getContributors(self):
@@ -1487,7 +1495,8 @@ class Misc(Entry):
                                     FieldName.Howpublished: Field(FieldName.Howpublished),
                                     FieldName.Year: Year(),
                                     FieldName.Month: Field(FieldName.Month),
-                                    FieldName.Note: Field(FieldName.Note)})
+                                    FieldName.Note: Field(FieldName.Note),
+                                    FieldName.Abstract: Field(FieldName.Abstract)})
     
     def getContributors(self):
         return self.getField(FieldName.Author).contributors

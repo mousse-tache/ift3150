@@ -483,3 +483,14 @@ class Paper(Field):
             doi = doi.getValue()
             if doi != '' and not doi.startswith('http'):
                 self.value = 'http://dx.doi.org/' + doi
+
+class Abstract(Field):
+    """
+    The field for the abstract.
+    """
+    def __init__(self, value = ''):
+        super(Abastract, self).__init__(FieldName.Abstract, value)
+        
+    def format(self):
+        self.value = self.value.replace(' ', '')
+

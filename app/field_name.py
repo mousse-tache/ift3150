@@ -41,9 +41,10 @@ class FieldName:
     Year = 'year'
     Paper = 'paper'     # not part of the BibTeX standard
     Comment = 'comment' # not part of the BibTeX standard
+    Abstract= 'abstract' # not part of the BibTeX standard
     
     __all_names = sorted(
-            [Address, Annote, Author, BookTitle, Crossref,
+            [Abstract, Address, Annote, Author, BookTitle, Crossref,
              Chapter, Edition, Editor, Howpublished, Institution,
              Journal, Key, Month, Note, Number,
              Organization, Pages, Publisher, School, Series,

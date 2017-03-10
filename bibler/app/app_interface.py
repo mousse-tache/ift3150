@@ -23,6 +23,7 @@ class EntryListColumn(object):
     Title = 'title'
     Valid = 'valid'
     Year = 'year'
+    Abstract = 'abstract'
     
     @staticmethod
     def list():
@@ -31,7 +32,7 @@ class EntryListColumn(object):
         @return: A list of all the columns.
         """
         return [EntryListColumn.Author, EntryListColumn.Id, EntryListColumn.Entrykey, EntryListColumn.Paper,
-                EntryListColumn.Title, EntryListColumn.Entrytype, EntryListColumn.Valid, EntryListColumn.Year, EntryListColumn.Message]
+                EntryListColumn.Title, EntryListColumn.Entrytype, EntryListColumn.Valid, EntryListColumn.Year, EntryListColumn.Message, EntryListColumn.Abstract]
 
 class EntryDict(dict):
     """

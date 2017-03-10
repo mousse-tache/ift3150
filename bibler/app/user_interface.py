@@ -9,7 +9,7 @@ Created on Nov 09, 2016
 This module represents the API of the application.
 """
 
-from gui.app_interface import IApplication
+from app.app_interface import IApplication
 from app.manager import ReferenceManager
 from app.command import AddCommand, CommandExecutor, DeleteCommand, DuplicateCommand, ExportCommand, GenerateAllKeysCommand, ImportCommand, \
                     OpenCommand, PreviewCommand, SearchCommand, SortCommand, UndoCommand, UpdateCommand, ValidateAllCommand
