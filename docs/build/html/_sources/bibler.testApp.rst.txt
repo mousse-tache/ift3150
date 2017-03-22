@@ -1,0 +1,94 @@
+bibler.testApp package
+======================
+
+Submodules
+----------
+
+bibler.testApp.oracle module
+----------------------------
+
+.. automodule:: bibler.testApp.oracle
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testAdd module
+-----------------------------
+
+.. automodule:: bibler.testApp.testAdd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testAll module
+-----------------------------
+
+.. automodule:: bibler.testApp.testAll
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testDelete module
+--------------------------------
+
+.. automodule:: bibler.testApp.testDelete
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testDuplicate module
+-----------------------------------
+
+.. automodule:: bibler.testApp.testDuplicate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testGetBibTeX module
+-----------------------------------
+
+.. automodule:: bibler.testApp.testGetBibTeX
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testPreview module
+---------------------------------
+
+.. automodule:: bibler.testApp.testPreview
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testSearch module
+--------------------------------
+
+.. automodule:: bibler.testApp.testSearch
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testSort module
+------------------------------
+
+.. automodule:: bibler.testApp.testSort
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.testApp.testUpdate module
+--------------------------------
+
+.. automodule:: bibler.testApp.testUpdate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: bibler.testApp
+    :members:
+    :undoc-members:
+    :show-inheritance:

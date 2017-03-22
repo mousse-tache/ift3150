@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bibwrap module &#8212; BiBler webservice 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="app module" href="app.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bibwrap">
+<span id="bibwrap-module"></span><h1>bibwrap module<a class="headerlink" href="#module-bibwrap" title="Permalink to this headline">¶</a></h1>
+<p>&#64;author: Félix Bélanger-Robillard</p>
+<dl class="class">
+<dt id="bibwrap.BiBlerWrapper">
+<em class="property">class </em><code class="descclassname">bibwrap.</code><code class="descname">BiBlerWrapper</code><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.addEntry">
+<em class="property">static </em><code class="descname">addEntry</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.addEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.addEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs the corresponding EntryDict
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: L{EntryDict}.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.bibtexToCSV">
+<em class="property">static </em><code class="descname">bibtexToCSV</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToCSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToCSV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a .csv file
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: SQL file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.bibtexToHTML">
+<em class="property">static </em><code class="descname">bibtexToHTML</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToHTML"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToHTML" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a .html file
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: SQL file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.bibtexToSQL">
+<em class="property">static </em><code class="descname">bibtexToSQL</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToSQL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToSQL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a SQL table
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: SQL file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.bibtexTobibtex">
+<em class="property">static </em><code class="descname">bibtexTobibtex</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexTobibtex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexTobibtex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a .bib file
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: SQL file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.formatBibtex">
+<em class="property">static </em><code class="descname">formatBibtex</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.formatBibtex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.formatBibtex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a formatted BibTeX
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: boolean .</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.previewEntry">
+<em class="property">static </em><code class="descname">previewEntry</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.previewEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.previewEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs an HTML preview
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: str.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="bibwrap.BiBlerWrapper.validateEntry">
+<em class="property">static </em><code class="descname">validateEntry</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.validateEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.validateEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs 1 if the entry is valid or 0 if it&#8217;s not
+&#64;type bibtex: L{str}
+&#64;param bibtex: The BibTeX string to be processed.
+&#64;return: boolean .</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="app.html" title="previous chapter">app module</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bibwrap.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Félix Bélanger-Robillard.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/bibwrap.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>application &#8212; BiBler webservice 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for application</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">@author: Félix Bélanger-Robillard</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">#-*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s2">&quot;/var/www/bibweb/&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abspath</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">abspath</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">web</span>
+<span class="kn">from</span> <span class="nn">bibwrap</span> <span class="k">import</span> <span class="n">BiBlerWrapper</span>
+<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;templates&#39;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;/formatbibtex/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatBibTeX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/addentry/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;AddEntry&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/bibtextosql/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;BibTeXtoSQL&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/bibtextocsv/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;BibTeXtoCSV&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/bibtextohtml/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;BibTeXtoHTML&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/bibtextobibtex/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;BibTeXtoBibTeX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/previewentry/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;PreviewEntry&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/validateentry/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;ValidateEntry&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/help/&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span>
+<span class="p">)</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">The following classes are used to handle the different URLs</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="index"><a class="viewcode-back" href="../application.html#application.index">[docs]</a><span class="k">class</span> <span class="nc">index</span><span class="p">:</span>
+<div class="viewcode-block" id="index.GET"><a class="viewcode-back" href="../application.html#application.index.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">index</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="FormatBibTeX"><a class="viewcode-back" href="../application.html#application.FormatBibTeX">[docs]</a><span class="k">class</span> <span class="nc">FormatBibTeX</span><span class="p">:</span>
+<div class="viewcode-block" id="FormatBibTeX.GET"><a class="viewcode-back" href="../application.html#application.FormatBibTeX.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">formatBibtex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="Parse"><a class="viewcode-back" href="../application.html#application.Parse">[docs]</a><span class="k">class</span> <span class="nc">Parse</span><span class="p">:</span>
+<div class="viewcode-block" id="Parse.GET"><a class="viewcode-back" href="../application.html#application.Parse.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="n">BibwlerWrapper</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> </div></div>
+
+<div class="viewcode-block" id="AddEntry"><a class="viewcode-back" href="../application.html#application.AddEntry">[docs]</a><span class="k">class</span> <span class="nc">AddEntry</span><span class="p">:</span>
+<div class="viewcode-block" id="AddEntry.GET"><a class="viewcode-back" href="../application.html#application.AddEntry.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="BibTeXtoSQL"><a class="viewcode-back" href="../application.html#application.BibTeXtoSQL">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoSQL</span><span class="p">:</span>
+<div class="viewcode-block" id="BibTeXtoSQL.GET"><a class="viewcode-back" href="../application.html#application.BibTeXtoSQL.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToSQL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="BibTeXtoCSV"><a class="viewcode-back" href="../application.html#application.BibTeXtoCSV">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoCSV</span><span class="p">:</span>
+<div class="viewcode-block" id="BibTeXtoCSV.GET"><a class="viewcode-back" href="../application.html#application.BibTeXtoCSV.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToCSV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="BibTeXtoHTML"><a class="viewcode-back" href="../application.html#application.BibTeXtoHTML">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoHTML</span><span class="p">:</span>
+<div class="viewcode-block" id="BibTeXtoHTML.GET"><a class="viewcode-back" href="../application.html#application.BibTeXtoHTML.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToHTML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="BibTeXtoBibTeX"><a class="viewcode-back" href="../application.html#application.BibTeXtoBibTeX">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoBibTeX</span><span class="p">:</span>
+<div class="viewcode-block" id="BibTeXtoBibTeX.GET"><a class="viewcode-back" href="../application.html#application.BibTeXtoBibTeX.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexTobibtex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="PreviewEntry"><a class="viewcode-back" href="../application.html#application.PreviewEntry">[docs]</a><span class="k">class</span> <span class="nc">PreviewEntry</span><span class="p">:</span>
+<div class="viewcode-block" id="PreviewEntry.GET"><a class="viewcode-back" href="../application.html#application.PreviewEntry.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">previewEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="ValidateEntry"><a class="viewcode-back" href="../application.html#application.ValidateEntry">[docs]</a><span class="k">class</span> <span class="nc">ValidateEntry</span><span class="p">:</span>
+<div class="viewcode-block" id="ValidateEntry.GET"><a class="viewcode-back" href="../application.html#application.ValidateEntry.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">validateEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div></div>
+        
+<span class="n">web</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">autoreload</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">application</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">wsgifunc</span><span class="p">()</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Félix Bélanger-Robillard.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

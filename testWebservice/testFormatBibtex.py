@@ -8,3 +8,6 @@ sys.path.append(abspath)
 os.chdir(abspath)
 from TestWebservice import oracle
 from bibwrap import BiBlerWrapper
+
+
+class TestFormatBibtex(unittest.TestCase):

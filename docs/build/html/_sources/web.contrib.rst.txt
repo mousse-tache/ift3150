@@ -1,0 +1,22 @@
+web.contrib package
+===================
+
+Submodules
+----------
+
+web.contrib.template module
+---------------------------
+
+.. automodule:: web.contrib.template
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: web.contrib
+    :members:
+    :undoc-members:
+    :show-inheritance:

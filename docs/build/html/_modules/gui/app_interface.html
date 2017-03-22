@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>gui.app_interface &#8212; BiBler webservice 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for gui.app_interface</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Jan 13, 2014</span>
+<span class="sd">.. moduleauthor:: Eugene Syriani</span>
+<span class="sd">.. moduleauthor:: Florin Oncica </span>
+
+<span class="sd">.. versionadded:: 1.0</span>
+
+<span class="sd">This module represents the interface that the L{app} module must conform to.</span>
+<span class="sd">@group Interchange data-structures: EntryDict, EntryListColumn</span>
+<span class="sd">@sort: EntryDict, EntryListColumn</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EntryListColumn"><a class="viewcode-back" href="../../gui.html#gui.app_interface.EntryListColumn">[docs]</a><span class="k">class</span> <span class="nc">EntryListColumn</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The columns of the entry list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Author</span> <span class="o">=</span> <span class="s1">&#39;author&#39;</span>
+    <span class="n">Entrytype</span> <span class="o">=</span> <span class="s1">&#39;entrytype&#39;</span>
+    <span class="n">Entrykey</span> <span class="o">=</span> <span class="s1">&#39;entrykey&#39;</span>
+    <span class="n">Id</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
+    <span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;message&#39;</span>
+    <span class="n">Paper</span> <span class="o">=</span> <span class="s1">&#39;paper&#39;</span>
+    <span class="n">Title</span> <span class="o">=</span> <span class="s1">&#39;title&#39;</span>
+    <span class="n">Valid</span> <span class="o">=</span> <span class="s1">&#39;valid&#39;</span>
+    <span class="n">Year</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span>
+    
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="EntryListColumn.list"><a class="viewcode-back" href="../../gui.html#gui.app_interface.EntryListColumn.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        @rtype: L{list}</span>
+<span class="sd">        @return: A list of all the columns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Author</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Entrykey</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Paper</span><span class="p">,</span>
+                <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Title</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Entrytype</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Valid</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Year</span><span class="p">,</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Message</span><span class="p">]</span></div></div>
+
+<div class="viewcode-block" id="EntryDict"><a class="viewcode-back" href="../../gui.html#gui.app_interface.EntryDict">[docs]</a><span class="k">class</span> <span class="nc">EntryDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The exchange format of entries.</span>
+<span class="sd">    It is a dictionary where all L{EntryListColumn} fields are predefined keys that cannot be removed.</span>
+<span class="sd">    </span>
+<span class="sd">        &gt;&gt;&gt; d = EntryDict()</span>
+<span class="sd">        &gt;&gt;&gt; print d</span>
+<span class="sd">            {&#39;id&#39;: &#39;&#39;, ...}</span>
+<span class="sd">        &gt;&gt;&gt; del d[EntryListColumn.Id]</span>
+<span class="sd">        &gt;&gt;&gt; print d</span>
+<span class="sd">            {&#39;id&#39;: &#39;&#39;, ...}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All L{EntryListColumn} fields are predefined keys.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">list</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Id</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deleting a L{EntryListColumn} key will set its value to C{&#39;&#39;}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">list</span><span class="p">():</span>
+            <span class="nb">dict</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Id</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Cannot delete key: &#39;</span> <span class="o">+</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        
+<div class="viewcode-block" id="EntryDict.toBibTeX"><a class="viewcode-back" href="../../gui.html#gui.app_interface.EntryDict.toBibTeX">[docs]</a>    <span class="k">def</span> <span class="nf">toBibTeX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert into a BibTeX reference.</span>
+<span class="sd">        @rtype: L{str}</span>
+<span class="sd">        @return: The BibTeX reference.</span>
+<span class="sd">        @note: The BibTeX format is::</span>
+<span class="sd">            @TYPE{KEY,</span>
+<span class="sd">              FIELD1 = {VALUE1},</span>
+<span class="sd">              FIELD2 = {VALUE2}</span>
+<span class="sd">            }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bibtex</span> <span class="o">=</span> <span class="s1">&#39;@</span><span class="si">%s</span><span class="s1">{</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Entrytype</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="bp">self</span><span class="p">[</span><span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Entrykey</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">field</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Id</span> <span class="ow">or</span> <span class="n">field</span> <span class="o">==</span> <span class="n">EntryListColumn</span><span class="o">.</span><span class="n">Valid</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="c1"># This part is to put {} around capital letters if they aren&#39;t already</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)):</span>
+                    <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;{&#39;</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;}&#39;</span><span class="p">:</span>
+                            <span class="n">v</span> <span class="o">+=</span> <span class="s1">&#39;{</span><span class="si">%s</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">v</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">bibtex</span> <span class="o">+=</span> <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1">  </span><span class="si">%s</span><span class="s1"> = {</span><span class="si">%s</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="n">bibtex</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">}&#39;</span>
+            <span class="k">return</span> <span class="n">bibtex</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+    
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="EntryDict.fromDict"><a class="viewcode-back" href="../../gui.html#gui.app_interface.EntryDict.fromDict">[docs]</a>    <span class="k">def</span> <span class="nf">fromDict</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a Python L{dict} into an L{EntryDict}.</span>
+<span class="sd">        @type d: L{dict}</span>
+<span class="sd">        @param d: The dictionary to convert.</span>
+<span class="sd">        @rtype: L{EntryDict}</span>
+<span class="sd">        @return: An L{EntryDict} with all the keys and values from C{d}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ed</span> <span class="o">=</span> <span class="n">EntryDict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">ed</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ed</span></div></div>
+
+<div class="viewcode-block" id="IApplication"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication">[docs]</a><span class="k">class</span> <span class="nc">IApplication</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface that provides all the application functions required for the L{Controller&lt;gui.controller.Controller&gt;}.</span>
+<span class="sd">    The meaning of every operation in the BiBler GUI is given by these functions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="IApplication.start"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start the application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.exit"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.exit">[docs]</a>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.importFile"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.importFile">[docs]</a>    <span class="k">def</span> <span class="nf">importFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">importFormat</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Import a list of entries from a file in a given format.</span>
+<span class="sd">        @type path: L{str}</span>
+<span class="sd">        @param path: The path to a file.</span>
+<span class="sd">        @type importFormat: L{utils.settings.ImportFormat}</span>
+<span class="sd">        @param importFormat: The format of the file.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.exportFile"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.exportFile">[docs]</a>    <span class="k">def</span> <span class="nf">exportFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">exportFormat</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Export the list of entries to a file in a given format.</span>
+<span class="sd">        @type path: L{str}</span>
+<span class="sd">        @param path: The path to a file.</span>
+<span class="sd">        @type exportFormat: L{utils.settings.ExportFormat}</span>
+<span class="sd">        @param exportFormat: The format of the file.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.openFile"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.openFile">[docs]</a>    <span class="k">def</span> <span class="nf">openFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">openFormat</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Import a list of entries from a BibTeX file in a given format and overwrites all existing entries.</span>
+<span class="sd">        @type path: L{str}</span>
+<span class="sd">        @param path: The path to a file.</span>
+<span class="sd">        @type openFormat: L{utils.settings.ImportFormat}</span>
+<span class="sd">        @param openFormat: The format of the file.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.addEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.addEntry">[docs]</a>    <span class="k">def</span> <span class="nf">addEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryBibTeX</span><span class="p">,</span> <span class="n">entryType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a new entry. If C{entryBibTeX==Empty Entry}, an empty entry is created.</span>
+<span class="sd">        @type entryBibTeX: L{str}</span>
+<span class="sd">        @param entryBibTeX: The BibTeX reference of the entry. </span>
+<span class="sd">        @rtype: L{int}</span>
+<span class="sd">        @return: The I{id} of the new entry. C{None} is returned if failed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.duplicateEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.duplicateEntry">[docs]</a>    <span class="k">def</span> <span class="nf">duplicateEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a copy of an existing entry.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry to copy.</span>
+<span class="sd">        @rtype: L{int}</span>
+<span class="sd">        @return: The I{id} of the new entry. C{None} is returned if failed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.updateEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.updateEntry">[docs]</a>    <span class="k">def</span> <span class="nf">updateEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">,</span> <span class="n">entryBibTeX</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update an entry with a new BibTeX reference.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry to update. </span>
+<span class="sd">        @type entryBibTeX: L{str}</span>
+<span class="sd">        @param entryBibTeX: The BibTeX reference. </span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.updateEntryField"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.updateEntryField">[docs]</a>    <span class="k">def</span> <span class="nf">updateEntryField</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">,</span> <span class="n">fieldName</span><span class="p">,</span> <span class="n">fieldValue</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update an entry BibTeX reference field with a new value.</span>
+<span class="sd">        </span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry to update. </span>
+<span class="sd">        @type fieldName: L{str}</span>
+<span class="sd">        @param fieldName: The field name.</span>
+<span class="sd">        @type fieldValue: L{str}</span>
+<span class="sd">        @param fieldValue: The field value.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.deleteEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.deleteEntry">[docs]</a>    <span class="k">def</span> <span class="nf">deleteEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete an entry.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry to delete. </span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.previewEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.previewEntry">[docs]</a>    <span class="k">def</span> <span class="nf">previewEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert an entry into its HTML representation following the bibliography style specified in L{utils.settings.Preferences}.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry to preview. </span>
+<span class="sd">        @rtype: L{str}</span>
+<span class="sd">        @return: The HTML representation of the entry.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="IApplication.generateAllKeys"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.generateAllKeys">[docs]</a>    <span class="k">def</span> <span class="nf">generateAllKeys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate the key of all entries.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if all keys were generated successfully, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="IApplication.validateAllEntries"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.validateAllEntries">[docs]</a>    <span class="k">def</span> <span class="nf">validateAllEntries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate all entries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.undo"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.undo">[docs]</a>    <span class="k">def</span> <span class="nf">undo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Undo the last action performed. </span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.hasUndoableActionLeft"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.hasUndoableActionLeft">[docs]</a>    <span class="k">def</span> <span class="nf">hasUndoableActionLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Verify if there is any action to undo.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getEntryPaperURL"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntryPaperURL">[docs]</a>    <span class="k">def</span> <span class="nf">getEntryPaperURL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the URL of the paper of the selected entry.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{str}</span>
+<span class="sd">        @return: The URL (or path) to the file.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.search"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Search for entries that satisfy the query provided.</span>
+<span class="sd">        @type query: L{str}</span>
+<span class="sd">        @param query: The query to match.</span>
+<span class="sd">        @rtype: L{int}</span>
+<span class="sd">        @return: Number of matches if search succeeded, negative number otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.sort"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.sort">[docs]</a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inplace sort of in alphabetically increasing order all entries with respect to a field.</span>
+<span class="sd">        @type field: L{EntryListColumn}</span>
+<span class="sd">        @param field: The field to sort on.</span>
+<span class="sd">        @type field: L{bool}</span>
+<span class="sd">        @param reverse: Sort in decreasing order when C{True}.</span>
+<span class="sd">        @rtype: L{bool}</span>
+<span class="sd">        @return: C{True} if succeeded, C{False} otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="IApplication.getEntry"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntry">[docs]</a>    <span class="k">def</span> <span class="nf">getEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert an entry into an L{EntryDict}.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{list} of L{EntryDict}</span>
+<span class="sd">        @return: The entry.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="IApplication.getBibTeX"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getBibTeX">[docs]</a>    <span class="k">def</span> <span class="nf">getBibTeX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert an entry into its BibTeX reference.</span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{str}</span>
+<span class="sd">        @return: The BibTeX reference.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getEntryRequiredFields"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntryRequiredFields">[docs]</a>    <span class="k">def</span> <span class="nf">getEntryRequiredFields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the required fields of an entry.</span>
+<span class="sd">        </span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{dict}</span>
+<span class="sd">        @return: The dictionary of required fields.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getEntryOptionalFields"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntryOptionalFields">[docs]</a>    <span class="k">def</span> <span class="nf">getEntryOptionalFields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the optional fields of an entry.</span>
+<span class="sd">        </span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{dict}</span>
+<span class="sd">        @return: The dictionary of optional fields.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getEntryAdditionalFields"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntryAdditionalFields">[docs]</a>    <span class="k">def</span> <span class="nf">getEntryAdditionalFields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">entryId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the additional fields of an entry.</span>
+<span class="sd">        </span>
+<span class="sd">        @type entryId: L{int}</span>
+<span class="sd">        @param entryId: The I{id} of the entry. </span>
+<span class="sd">        @rtype: L{dict}</span>
+<span class="sd">        @return: The dictionary of additional fields.</span>
+<span class="sd">        @raise Exception: If entry not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getAllEntries"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getAllEntries">[docs]</a>    <span class="k">def</span> <span class="nf">getAllEntries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the list of all entries.</span>
+<span class="sd">        @rtype: L{list} of L{EntryDict}</span>
+<span class="sd">        @return: The list of entries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getEntryCount"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getEntryCount">[docs]</a>    <span class="k">def</span> <span class="nf">getEntryCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the total number of entries.</span>
+<span class="sd">        @rtype: L{int}</span>
+<span class="sd">        @return: The total.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getSearchResult"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getSearchResult">[docs]</a>    <span class="k">def</span> <span class="nf">getSearchResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the list of entries filtered by the search.</span>
+<span class="sd">        @rtype: L{list} of L{EntryDict}</span>
+<span class="sd">        @return: The list of entries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="IApplication.getSearchResultCount"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.getSearchResultCount">[docs]</a>    <span class="k">def</span> <span class="nf">getSearchResultCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the total number of results from the search.</span>
+<span class="sd">        @rtype: L{int}</span>
+<span class="sd">        @return: The total.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="IApplication.iterAllEntries"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.iterAllEntries">[docs]</a>    <span class="k">def</span> <span class="nf">iterAllEntries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterator over the list of all entries.</span>
+<span class="sd">        @rtype: C{generator} of L{EntryDict}</span>
+<span class="sd">        @return: The list of entries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="IApplication.iterSearchResult"><a class="viewcode-back" href="../../gui.html#gui.app_interface.IApplication.iterSearchResult">[docs]</a>    <span class="k">def</span> <span class="nf">iterSearchResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the list of entries filtered by the search.</span>
+<span class="sd">        @rtype: C{generator} of L{EntryDict}</span>
+<span class="sd">        @return: The list of entries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Félix Bélanger-Robillard.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

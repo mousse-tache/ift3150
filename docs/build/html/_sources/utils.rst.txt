@@ -1,0 +1,46 @@
+utils package
+=============
+
+Submodules
+----------
+
+utils.resourcemgr module
+------------------------
+
+.. automodule:: utils.resourcemgr
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.settings module
+---------------------
+
+.. automodule:: utils.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.tex_converter module
+--------------------------
+
+.. automodule:: utils.tex_converter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.utils module
+------------------
+
+.. automodule:: utils.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

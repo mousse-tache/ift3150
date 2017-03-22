@@ -1,0 +1,46 @@
+bibler.gui package
+==================
+
+Submodules
+----------
+
+bibler.gui.app_interface module
+-------------------------------
+
+.. automodule:: bibler.gui.app_interface
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.gui.controller module
+----------------------------
+
+.. automodule:: bibler.gui.controller
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.gui.gui module
+---------------------
+
+.. automodule:: bibler.gui.gui
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.gui.statechart module
+----------------------------
+
+.. automodule:: bibler.gui.statechart
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: bibler.gui
+    :members:
+    :undoc-members:
+    :show-inheritance:

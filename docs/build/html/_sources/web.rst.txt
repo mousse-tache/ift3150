@@ -1,0 +1,150 @@
+web package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+
+    web.contrib
+    web.wsgiserver
+
+Submodules
+----------
+
+web.application module
+----------------------
+
+.. automodule:: web.application
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.browser module
+------------------
+
+.. automodule:: web.browser
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.db module
+-------------
+
+.. automodule:: web.db
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.debugerror module
+---------------------
+
+.. automodule:: web.debugerror
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.form module
+---------------
+
+.. automodule:: web.form
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.http module
+---------------
+
+.. automodule:: web.http
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.httpserver module
+---------------------
+
+.. automodule:: web.httpserver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.net module
+--------------
+
+.. automodule:: web.net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.py3helpers module
+---------------------
+
+.. automodule:: web.py3helpers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.session module
+------------------
+
+.. automodule:: web.session
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.template module
+-------------------
+
+.. automodule:: web.template
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.test module
+---------------
+
+.. automodule:: web.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.utils module
+----------------
+
+.. automodule:: web.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.webapi module
+-----------------
+
+.. automodule:: web.webapi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.webopenid module
+--------------------
+
+.. automodule:: web.webopenid
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+web.wsgi module
+---------------
+
+.. automodule:: web.wsgi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: web
+    :members:
+    :undoc-members:
+    :show-inheritance:

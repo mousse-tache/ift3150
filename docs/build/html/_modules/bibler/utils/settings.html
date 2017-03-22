@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bibler.utils.settings &#8212; BiBler webservice 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for bibler.utils.settings</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on Jan 13, 2014</span>
+<span class="sd">@author: Eugene Syriani</span>
+<span class="sd">@version: 0.7</span>
+
+<span class="sd">This is module represents the settings for BiBler.</span>
+<span class="sd">@group Enumerations: BibStyle, ExportFormat, ImportFormat</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
+
+<div class="viewcode-block" id="ImportFormat"><a class="viewcode-back" href="../../../bibler.utils.html#bibler.utils.settings.ImportFormat">[docs]</a><span class="k">class</span> <span class="nc">ImportFormat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerates the allowed import formats.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">BIBTEX</span> <span class="o">=</span> <span class="s1">&#39;bib&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .bib extension representing a BibTeX file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CSV</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .csv extension representing a Comma-Separated Values file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ENDNOTE</span> <span class="o">=</span> <span class="s1">&#39;endnote&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .bib extension representing a BibTeX file exported from EndNote using the BiBlerExporter for EndNote.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ExportFormat"><a class="viewcode-back" href="../../../bibler.utils.html#bibler.utils.settings.ExportFormat">[docs]</a><span class="k">class</span> <span class="nc">ExportFormat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerates the allowed export formats.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">BIBTEX</span> <span class="o">=</span> <span class="s1">&#39;bib&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .bib extension representing a BibTeX file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CSV</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .csv extension representing a Comma-Separated Values file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">HTML</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .html extension representing a web page.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">SQL</span> <span class="o">=</span> <span class="s1">&#39;sql&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .sql extension representing a MySQL database.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="BibStyle"><a class="viewcode-back" href="../../../bibler.utils.html#bibler.utils.settings.BibStyle">[docs]</a><span class="k">class</span> <span class="nc">BibStyle</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerates the possible bibliography styles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ACM</span> <span class="o">=</span> <span class="s1">&#39;acm&#39;</span>
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span>
+    
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="BibStyle.getAllStyles"><a class="viewcode-back" href="../../../bibler.utils.html#bibler.utils.settings.BibStyle.getAllStyles">[docs]</a>    <span class="k">def</span> <span class="nf">getAllStyles</span><span class="p">():</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">BibStyle</span><span class="o">.</span><span class="n">ACM</span><span class="p">,</span> <span class="n">BibStyle</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">])</span></div></div>
+
+<div class="viewcode-block" id="Preferences"><a class="viewcode-back" href="../../../bibler.utils.html#bibler.utils.settings.Preferences">[docs]</a><span class="k">class</span> <span class="nc">Preferences</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">utils</span><span class="o">.</span><span class="n">Singleton</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Holds the preferences of this BiBler instance, such as:</span>
+<span class="sd">    the bibliography style and the default directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bibStyle</span> <span class="o">=</span> <span class="n">BibStyle</span><span class="o">.</span><span class="n">DEFAULT</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The bibliography style of BiBler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">pardir</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The default directory to use for I/O.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowInvalidEntries</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enforces to only add valid well-formed entries with respect to their BibTeX representation and ignore others.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowNonStandardFields</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enforces to only retain standard BibTeX fields in each entry.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overrideKeyGeneration</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enforces to only add valid well-formed entries with respect to their BibTeX representation and ignore others.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">searchRegex</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allows regular expressions in search query.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Félix Bélanger-Robillard.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

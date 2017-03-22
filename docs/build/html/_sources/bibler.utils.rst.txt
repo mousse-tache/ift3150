@@ -1,0 +1,46 @@
+bibler.utils package
+====================
+
+Submodules
+----------
+
+bibler.utils.resourcemgr module
+-------------------------------
+
+.. automodule:: bibler.utils.resourcemgr
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.utils.settings module
+----------------------------
+
+.. automodule:: bibler.utils.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.utils.tex_converter module
+---------------------------------
+
+.. automodule:: bibler.utils.tex_converter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+bibler.utils.utils module
+-------------------------
+
+.. automodule:: bibler.utils.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: bibler.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
