@@ -129,7 +129,8 @@ class BiBlerWrapper(object):
     @staticmethod
     def __getBiblerApp(self, bibtex):
         '''
-        Returns an instance of BiblerApp with propoer settings and an entry based on the bibtex given
+        Returns an instance of BiblerApp with proper settings and
+        an entry based on the bibtex given
         '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
