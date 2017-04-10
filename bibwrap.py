@@ -3,7 +3,7 @@
 '''
 #-*- coding: utf-8 -*-
 #import sys, os
-#abspath = os.path.dirname("/var/www/bibweb/app/")
+#abspath = os.path.dirname("/var/www/ift3150/app/")
 #sys.path.append(abspath)
 #os.chdir(abspath)
 from app.user_interface import BiBlerApp
