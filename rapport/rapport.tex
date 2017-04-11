@@ -30,6 +30,7 @@ Le 4 avril, une mise à jour de ma distribution linux à causer une erreur fatal
 
 \subsection{9 avril}
 Ojectif initial: Tests et documentation \newline
+Un changement a été effectué au niveau du design. Au moment de faire les tests de performance, l'utilisation des méthodes GET s'est révélée inappropriée et le code a donc été modifié pour employer POST.
 
 
 \section{Technologies employées}
@@ -51,7 +52,7 @@ Le serveur Apache2 est probablement ce qui m'a pris le de temps et d'énergie. P
 Le tout m'a grandement familiarisé avec les types de permissions et le fichier de configuration d'apache, ayant eu jusqu'à 5 serveurs HTTP en simultané au cours de la session sur mon ordinateur personnel. 
 \section{Webservice}
 \subsection{Conception et fonctionnement}
-
+Plusieurs choix ont été effectués par rapport à l'implantation du webservice par rapport à l'approche desktop de BiBler. Le webservice ne conserve aucune donnée envoyée au serveur, il effectue l'opération et retourne le résultat désiré. Afin d'arriver à ce résultat, une nouvelle instance de l'application est instanciée à chaque appel de méthode. Sans cette particularité, l'exportation de résultats sur une instance commune aurait retourné l'ensemble des fiches importées et comme on ne veut pas avoir à gérer le contenu utilisateur, ç'aurait été un effet indésirable. 
 \subsection{Tests et performance}
 
 \section{Conclusion}

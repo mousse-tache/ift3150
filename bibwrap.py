@@ -1,5 +1,5 @@
 '''
-@author: Félix Bélanger-Robillard
+@author: Felix Belanger Robillard
 '''
 #-*- coding: utf-8 -*-
 #import sys, os
@@ -33,10 +33,10 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
-        path="/var/www/bibweb/export/export.sql"
+        path="/var/www/html/ift3150/export/export.sql"
         biblerapp.exportFile(path, 'sql')
         try:
-            f = open("/var/www/bibweb/export/export.sql", 'r')
+            f = open("/var/www/html/ift3150/export/export.sql", 'r')
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
@@ -50,10 +50,10 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
-        path="/var/www/bibweb/export/export.csv"
+        path="/var/www/html/ift3150/export/export.csv"
         biblerapp.exportFile(path, 'csv')
         try:
-            f = open("/var/www/bibweb/export/export.csv", 'r')
+            f = open("/var/www/html/ift3150/export/export.csv", 'r')
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
@@ -67,10 +67,10 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
-        path="/var/www/bibweb/export/export.bib"
+        path="/var/www/html/ift3150/export/export.bib"
         biblerapp.exportFile(path, 'bib')
         try:
-            f = open("/var/www/bibweb/export/export.bib", 'r')
+            f = open("/var/www/html/ift3150/export/export.bib", 'r')
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
@@ -84,10 +84,10 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
-        path="/var/www/bibweb/export/export.html"
+        path="/var/www/html/ift3150/export/export.html"
         biblerapp.exportFile(path, 'html')
         try:
-            f = open("/var/www/bibweb/export/export.html", 'r')
+            f = open("/var/www/html/ift3150/export/export.html", 'r')
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
@@ -134,5 +134,5 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
-        bibtex=BiBlerApp.formatBibTeX(self, bibtex)
+        #bibtex=BiBlerApp.formatBibTeX(self, bibtex)
         return biblerapp
