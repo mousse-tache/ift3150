@@ -2,6 +2,30 @@
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage[margin=1.2in]{geometry}
+\usepackage{color}
+\usepackage{cite}
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=PHP,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 \setlength{\parindent}{2pt}
 \author{Félix Bélanger-Robillard}
 \title{Rapport - Projet informatique}
@@ -12,52 +36,89 @@
 \tableofcontents
 \newpage
 
-\section{Abstract}
-Le présent projet avait pour but de créer un webservice servant les fonctionnalités de BiBler et de l'intégrer à ReLiS (Revue Littéraire Systématique) afin d'offrir une plateforme web permettant d'allier les fonctionnalités propres à ces deux logiciels, le tout sous la supervision de monsieur Eugène Syriani et avec la précieuse collaboration de Brice-Michel Bigendako.
-\section{Respect de l'échéancier}
-\subsection{9 février}
-Objectif initial: Webservice fonctionnel \newline
-
-Cet object a été respecté, en date du 9 février, le Webservice pouvait créer localement un serveur HTTP à l'aide du framework web.py, par contre il n'était pas encore sur un serveur Apache, tel qu'il était prévu éventuellement. Cet objectif a été atteint autour du 1er mars.
-\subsection{9 mars}
-Ojectif initial: Intégration avec ReLiS \newline
-
-ReLiS n'était toujours pas fonctionnel de façon locale à ce moment précis. La documentation et les tests avaient donc été entamés dans cette période afin de compenser le délai au niveau de l'intégration. D'un autre côté, une application simple en php était capable d'utiliser sans problème le webservice. \newline
-
-Le 28 mars, après de nombreuses heures de débogages avec Brice, nous sommes arrivés à corriger l'ensemble des bugs qui empêchaient le bon fonctionnement de ReLiS sur mon ordinateur personnel. Deux jours plus tard, Brice me fournissait de nouveaux controlleurs et de nouvelles pages afin de faire l'intégration avec le webservice. La même semaine, nous avons eu l'annonce que nous aurions un serveur uniquement pour ReLiS et le webservice. \newline
-
-Le 4 avril, une mise à jour de ma distribution linux à causer une erreur fatal au niveau de mon ordinateur de travail. Ayant plusieurs backups, je n'ai pas perdu de donner, mais j'ai complètement perdu mon environnement de test et mes configurations de serveur Apache. L'erreur étant systématique, j'ai dû m'adapter rapidement. Après avoir lu sur divers options plus sécuritaires, j'ai installé Fedora 25 sur mon ordinateur et réinstallé Apache ainsi que les modules nécessaires. C'est un incident malheureux qui m'aura appris que les mises à jours peuvent attendre, surtout en temps critiques comme la fin d'une session et à l'approche d'un déploiement.
-
-\subsection{9 avril}
-Ojectif initial: Tests et documentation \newline
-Un changement a été effectué au niveau du design. Au moment de faire les tests de performance, l'utilisation des méthodes GET s'est révélée inappropriée et le code a donc été modifié pour employer POST.
+\section{Introduction}
+Le présent projet avait pour but de créer un webservice servant les fonctionnalités de BiBler, puis de l'intégrer à ReLiS (Revue Littéraire Systématique) afin d'offrir une plateforme web permettant d'allier les fonctionnalités propres à ces deux logiciels, le tout sous la supervision de monsieur Eugène Syriani et avec la précieuse collaboration de Brice-Michel Bigendako qui s'occupe de ReLiS. Le projet intégrait des connaissances en PHP et Python. Le projet m'a aussi amené à travailler avec des serveurs de type Apache 2 et avec les systèmes de permissions Unix. Pour la rédaction du rapport, j'ai utilisé de nouveaux paquets LaTeX et au niveau de la documentation du projet, j'ai appris à utiliser Sphinx pour la générer.  \newline
 
 
-\section{Technologies employées}
-\subsection{BiBler}
-BiBler est le fondement du projet. Le webservice s'ancre sur l'API de BiBler et ne fait que délivrer ses fonctionnalités par le biais d'un serveur HTTP. 
-\subsection{ReLiS}
-ReLiS utilise ensuite les fonctionnalités du webservice dans son importation d'articles, principalement pour générer les clés et pour modifier les entrées de sa base de données. BiBler permet aussi à ReLiS de corriger des fichiers BibTeX mal formatés.
-\subsection{PHP}
-Les serveurs de déploiement et le framework employé par ReLiS étant limité à php5.6, j'ai dû télécharger ces versions de php par des voies non officielles des distributions employées lors du projet. C'était également un langage que je connaissais peu, mais considérant que l'intégration se bornait à envoyer le bon paramètre à la bonne méthode du webservice, ça ne m'a pas été d'un grand préjudice, hormis dans le débogage initial de ReLiS.
-\subsection{Python}
-La version de python utilisée a été Python 3.6. Cela n'a pas causé de problème de compatibilité avec BiBler qui utilise Python 3.5, mais a obligé l'utilisation d'un autre serveur auprès du DIRO puisqu'ils ne pouvaient déployer que Python 3.4 sur le serveur disponible initialement. \newline
+-Contexte et but, mentionner nouvelles connaissances
 
-Python est également un langage que je ne connaissais pas, mais la documentation nette, sa syntaxe simple et son orienté objet très similaire à Java a permis une transition assez facile vers ce langage. 
-\subsection{Web.py}
-Web.py est un framework minimaliste en Python, ce qui permet d'avoir un webservice écrit exclusivement en Python et qui peut être déployer sur une serveur Apache2 tel que requis à la base du projet. Cette option permet de minimiser les dépendances technologiques au minimum.
-\subsection{Apache2}
-Le serveur Apache2 est probablement ce qui m'a pris le de temps et d'énergie. Premièrement, il y a eu la nécessité d'installer mysql (mariadb), php5.6, de mettre Python 3 par défaut, en plus des modules spécifiques à Apache tels que mod$\_$wsgi (4.4.1) pour Python. \newline
+-Vue d'ensemble architecture du logiciel
 
-Le tout m'a grandement familiarisé avec les types de permissions et le fichier de configuration d'apache, ayant eu jusqu'à 5 serveurs HTTP en simultané au cours de la session sur mon ordinateur personnel. 
+-Mentionner tout, montrer qu'il y avait des challenges non trivial
+
+-Section: 
+intro( définition de concepts, termes et outils ),
+ core,
+  évaluation,
+   conclusion,
+    remerciements,
+     références bibliographiques (technologies),
+      annexes, 
+
+conclusion: résumé, puis future
+sabrina et khady, A+
+\subsection{Terminologie}
+BiBler est un outil de gestion de référence bibliographique. BiBler se sert de BibTeX, une librairie LaTeX de gestion référence, et offre une interface graphique afin de faciliter l'importation, l'exportation et la modification de références. BiBler offre également un aperçu des références et facilite l'insertion au sein de textes. BiBler génère également des clés d'identification pour les documents insérés qui peuvent ensuite être utilisés dans un document LaTeX.  \newline
+
+ReLiS, Revue Littéraire Systémique, est un outil web rédigé en PHP dans le framework CodeIgniter. ReLiS vise à aider les chercheurs au moment de consulter la littéraire d'un sujet précis. ReLiS permet à ces chercheurs de réduire l'ampleur de la tâche en automatisant en bonne partie la classification et avec des outils permettant un processus systématique de révision des articles. \newline
+
 \section{Webservice}
+\subsection{Analyse des besoins}
+Le besoin initial était de mettre BiBler en webservice d'une part et de l'intégrer à ReLiS d'une autre part. La première décision prise à ce niveau, a été de conserver le code de BiBler et d'utiliser un framework Python afin de ne pas avoir à réécrire le code du logiciel et dans le soucis de pouvoir maintenir le webservice plus aisément. Avec le webservice directement dépendant du code source originel, la maintenance à ce niveau, avec une nouvelle version de BiBler, sera de remplacer la libraire à l'emplacer physique de l'importation pour le webservice et de s'assurer ensuite que les tests unitaires sont toujours valides. \newline
+
+Afin de conserver au minimum le nombre de technologies employées, un framework qui n'utilise que Python était souhaité et, idéalement, avec un minimum de contraintes sur son utilisation. Il fallait également que l'application puisse être déployée sur un serveur Apache 2 à cause des contraintes des serveurs du département. C'est pour cette raison que Web.py \cite{Webpy1} a été choisi comme framework pour le webservice. De cette façon, avec BiBler, tout comme pour son webservice, le seul langage utilisé demeure Python 3.
+
+Au niveau de l'intégration avec ReLiS, les besoins étaient de pouvoir appeler le webservice, de formatter correctement les fichiers BibTeX, de générer les clés pour les articles et de pouvoir intégrer l'abstract au niveau de la référence bibtex. Le dernier besoin a entraîné une maintenance au niveau de BiBler, puisque ce n'était pas un champ qui y était présent. La génération de clés était également une exigence partiellement difficile à remplir, car la décision avait été prise de ne pas conserver de données utilisateurs du côté du webservice. Pour cette raison, il fallait également ajouter au sein de ReLiS une vérification au niveau des doublons pour modifier leur clé. \newline
+
+
 \subsection{Conception et fonctionnement}
-Plusieurs choix ont été effectués par rapport à l'implantation du webservice par rapport à l'approche desktop de BiBler. Le webservice ne conserve aucune donnée envoyée au serveur, il effectue l'opération et retourne le résultat désiré. Afin d'arriver à ce résultat, une nouvelle instance de l'application est instanciée à chaque appel de méthode. Sans cette particularité, l'exportation de résultats sur une instance commune aurait retourné l'ensemble des fiches importées et comme on ne veut pas avoir à gérer le contenu utilisateur, ç'aurait été un effet indésirable. 
-\subsection{Tests et performance}
+\subsection{Design}
+\subsection{Implantation}
+\subsection{Tests}
+\subsection{Intégration et déploiement}
+\subsection{Maintenance}
+Plusieurs choix ont été effectués par rapport à l'implantation du webservice par rapport à l'approche desktop de BiBler. Le webservice ne conserve aucune donnée envoyée au serveur, il effectue l'opération et retourne le résultat désiré. Afin d'arriver à ce résultat, une nouvelle instance de l'application est instanciée à chaque appel de méthode. Sans cette particularité, l'exportation de résultats sur une instance commune aurait retourné l'ensemble des fiches importées et comme on ne veut pas avoir à gérer le contenu utilisateur, ç'aurait été un effet indésirable. \newline
+
+Le webservice dépend de BiBler et n'utilise que la classe BiBlerApp qui correspond à l'API de cette dernière. Ensuite, le webservice instancie un object BiBlerApp et encapsule chacune des méthodes demandées. Chaque méthode est invoquée par un URL différent. Chacun de ses URLs réfèrent à une classe dont la méthode POST renvoit à la méthode correspondante de BiBler qui est encapsulée par la classe BiBlerWrapper du webservice pour assurer les instanciations locales nécessaires et les appels de méthodes de l'API. Les méthodes de l'API qui n'ont pas été encapsulées sont celles qui effectuent des query dans une application déjà existante qui contient des entrées. Elles pourraient être encapsulées, mais vu le choix de ne conserver aucune donnée, le résultat serait toujours nul. \newline
+
+Post versus GET, documenter
+Impact, maintenance
+Patron proxy
+performance
+
+
+Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et de le transformer en fichier BibTeX corrigé, en CSV, en HTML ou en SQL. Par contre, cela nécessite l'écriture dans un fichier.\newline
+
+L'utilisation attendue du webservice est via une requête http POST vers une méthode du webservice. Dans le cas de ReLiS ou d'un service basé sur PHP, la fonction suivante permet de faire une requête, attendu que \$url contient l'url de la méthode désirée et que \$data contient les données à transmettre sous forme de String: 
+\begin{lstlisting}
+
+function httpPost($url, $data)
+{
+
+	$ch = curl_init( $url );
+	curl_setopt( $ch, CURLOPT_POST, 1);
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, urlencode($data));
+	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt( $ch, CURLOPT_HEADER, 0);
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+	$response = curl_exec( $ch );
+    return $response;
+}
+
+\end{lstlisting}
+
+Pour l'intégration avec ReLiS, un champ abstract a été ajouté au code originel de BiBler. Pour ce faire, abstract a été ajouté à l'énumération des champs possibles. Une classe Abstract héritant de Field a égalément été ajoutée et abstract a été ajouté aux champs possibles de divers éléments, comme Article.
+
 
 \section{Conclusion}
-
-
+\subsection{Remerciements}
+Un merci infini à ceux qui m'ont aidé et accompagnés dans cette tâche: \newline
+Eugène Syriani, Ph.D., pour la supervision et les conseils précieux\newline
+Brice-Michel Bigendak, pour ReLiS et le débogage en PHP,
+L'équipe technique du DIRO, pour le support technique et le serveur
+\bibliography{references}{}
+\bibliographystyle{plain}
 \end{document}
 
 

@@ -14,6 +14,7 @@ render = web.template.render('templates', cache=False)
 urls = (
     '/formatbibtex/(.*)', 'FormatBibTeX',
     '/addentry/(.*)', 'AddEntry',
+    '/getbibtex/(.*)', 'GetBibTeX',
     '/bibtextosql/(.*)', 'BibTeXtoSQL',
     '/bibtextocsv/(.*)', 'BibTeXtoCSV',
     '/bibtextohtml/(.*)', 'BibTeXtoHTML',
@@ -42,6 +43,11 @@ class AddEntry:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
         return BiBlerWrapper.addEntry(self, data)
+
+class GetBibTeX:
+    def POST(self,code):
+        data = urllib.parse.unquote_plus(web.data().decode())
+        return BiBlerWrapper.getBibTeX(self, data)
 
 class BibTeXtoSQL:
     def POST(self,code):

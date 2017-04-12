@@ -7,7 +7,7 @@
 #sys.path.append(abspath)
 #os.chdir(abspath)
 from app.user_interface import BiBlerApp
-
+import tempfile
 
 
 class BiBlerWrapper(object):
@@ -22,6 +22,19 @@ class BiBlerWrapper(object):
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         return biblerapp.iterAllEntries()
+
+    @staticmethod
+    def getBibTeX(self, bibtex):
+        '''
+        Takes a BibTeX string and outputs the corresponding BibTex
+        @type bibtex: L{str}
+        @param bibtex: The BibTeX string to be processed.
+        @return: L{EntryDict}.
+        '''
+        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        b = biblerapp.addEntry(bibtex)
+        return biblerapp.getBibTeX(b)
+
 
     @staticmethod
     def bibtexToSQL(self,bibtex):
@@ -46,7 +59,7 @@ class BiBlerWrapper(object):
         Takes a BibTeX string and outputs a .csv file
         @type bibtex: L{str}
         @param bibtex: The BibTeX string to be processed.
-        @return: SQL file.
+        @return: CSV file.
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
@@ -63,14 +76,14 @@ class BiBlerWrapper(object):
         Takes a BibTeX string and outputs a .bib file
         @type bibtex: L{str}
         @param bibtex: The BibTeX string to be processed.
-        @return: SQL file.
+        @return: BibTeX file.
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.bib"
         biblerapp.exportFile(path, 'bib')
         try:
-            f = open("/var/www/html/ift3150/export/export.bib", 'r')
+            f = open(path, 'r')
             return f.read()
         except:
             return 'Error' # you can send an 404 error here if you want
@@ -80,18 +93,15 @@ class BiBlerWrapper(object):
         Takes a BibTeX string and outputs a .html file
         @type bibtex: L{str}
         @param bibtex: The BibTeX string to be processed.
-        @return: SQL file.
+        @return: HTML file.
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.html"
-        biblerapp.exportFile(path, 'html')
-        try:
-            f = open("/var/www/html/ift3150/export/export.html", 'r')
-            return f.read()
-        except:
-            return 'Error' # you can send an 404 error here if you want
-    
+        file=tempfile.NamedTemporaryFile(delete=False)
+        biblerapp.exportFile(file, 'html')
+        return file.read()
+
     @staticmethod
     def previewEntry(self,bibtex):
         '''
@@ -115,7 +125,8 @@ class BiBlerWrapper(object):
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         return biblerapp.validateAllEntries()
-    
+ 
+
     @staticmethod
     def formatBibtex(self, bibtex):
         '''
@@ -125,6 +136,8 @@ class BiBlerWrapper(object):
         @return: boolean .
         '''
         return BiBlerApp.formatBibTeX(self, bibtex)
+
+
 
     @staticmethod
     def __getBiblerApp(self, bibtex):
