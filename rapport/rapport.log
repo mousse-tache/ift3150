@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  12 APR 2017 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  14 APR 2017 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -416,41 +416,85 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+)
+\Gin@req@height=\dimen115
+\Gin@req@width=\dimen116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count99
+)
+\csq@reset=\count100
+\csq@gtype=\count101
+\csq@glevel=\count102
+\csq@qlevel=\count103
+\csq@maxlvl=\count104
+\csq@tshold=\count105
+\csq@ltx@everypar=\toks19
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2015/06/04 1.6 listings language file
-) (./rapport.aux)
+)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... none found.
+ (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-\c@lstlisting=\count99
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+\c@lstlisting=\count106
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a4paper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(86.72377pt, 424.06033pt, 86.72377pt)
-* v-part:(T,H,B)=(86.72377pt, 671.5993pt, 86.72377pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=424.06033pt
-* \textheight=671.5993pt
+* h-part:(L,W,R)=(86.72377pt, 440.84746pt, 86.72377pt)
+* v-part:(T,H,B)=(86.72377pt, 621.52245pt, 86.72377pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=440.84746pt
+* \textheight=621.52245pt
 * \oddsidemargin=14.45378pt
 * \evensidemargin=14.45378pt
 * \topmargin=-22.54622pt
@@ -458,7 +502,7 @@ LaTeX Font Info:    ... okay on input line 32.
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=44.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
@@ -473,23 +517,69 @@ LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen115
+\scratchcounter=\count107
+\scratchdimen=\dimen117
 \scratchbox=\box28
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen116
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
-\everyMPtoPDFconversion=\toks20
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen118
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks21
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 34.
+(Font)              <14.4> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 34.
- [1
+(Font)              <7> on input line 38.
+
+[1
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
 (./rapport.toc
@@ -506,7 +596,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
@@ -523,63 +613,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--64
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+<DomainClassDiagram.png, id=18, 441.8106pt x 71.7882pt>
+File: DomainClassDiagram.png Graphic file (type png)
+
+<use DomainClassDiagram.png>
+Package pdftex.def Info: DomainClassDiagram.png used on input line 80.
+(pdftex.def)             Requested size: 441.80951pt x 71.788pt.
+
+Overfull \hbox (2.96205pt too wide) in paragraph at lines 80--81
+[][] 
+ []
+
+[4
+
+ <./DomainClassDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+<ClassDiagram.png, id=24, 441.8106pt x 71.7882pt>
+File: ClassDiagram.png Graphic file (type png)
+ <use ClassDiagram.png>
+Package pdftex.def Info: ClassDiagram.png used on input line 90.
+(pdftex.def)             Requested size: 441.80951pt x 71.788pt.
+
+Overfull \hbox (2.96205pt too wide) in paragraph at lines 90--91
+[][] 
+ []
+
+<ComponentDiagram.png, id=25, 441.8106pt x 71.7882pt>
+File: ComponentDiagram.png Graphic file (type png)
+
+<use ComponentDiagram.png>
+Package pdftex.def Info: ComponentDiagram.png used on input line 95.
+(pdftex.def)             Requested size: 441.80951pt x 71.788pt.
+
+Overfull \hbox (2.96205pt too wide) in paragraph at lines 95--96
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+[5
+
+ <./ClassDiagram.png> <./ComponentDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
-[4] [5] (./rapport.bbl [6
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+[7] [8
 
 ]
-! Undefined control sequence.
-l.5 \newblock \url
-                  {http://webpy.org/}.
-? 
-) [7
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+[9
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+[10
+
+] [11] [12
+
+] (./rapport.bbl [13
+
+]) [14
 
 ] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 5446 strings out of 494946
- 79273 string characters out of 6180982
- 378674 words of memory out of 5000000
- 8732 multiletter control sequences out of 15000+600000
+ 6799 strings out of 494946
+ 100058 string characters out of 6180982
+ 410897 words of memory out of 5000000
+ 10029 multiletter control sequences out of 15000+600000
  9276 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 26i,7n,40p,841b,3454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,7n,40p,1194b,2899s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on rapport.pdf (8 pages, 70284 bytes).
+Output written on rapport.pdf (15 pages, 120899 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,7 +2,26 @@
 
 \bibitem{Webpy1}
 {W}eb.py.
-\newblock \url{http://webpy.org/}.
 \newblock Accessed: 2017-04-12.
+
+\bibitem{PDGa}
+{P}ython~{D}eveloper's {G}uide.
+\newblock re{S}tructured{T}ext {D}ocstring {F}ormat.
+\newblock Accessed: 2017-04-13.
+
+\bibitem{w3b}
+{W}3.
+\newblock Get.
+\newblock Accessed: 2017-04-13.
+
+\bibitem{w3a}
+{W}3.
+\newblock Post.
+\newblock Accessed: 2017-04-13.
+
+\bibitem{w3c}
+{W}3.
+\newblock Uri general syntax.
+\newblock Accessed: 2017-04-13.
 
 \end{thebibliography}

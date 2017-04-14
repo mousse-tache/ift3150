@@ -1,12 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {subsection}{\numberline {1.1}Terminologie}{2}
-\contentsline {section}{\numberline {2}Webservice}{3}
-\contentsline {subsection}{\numberline {2.1}Analyse des besoins}{3}
-\contentsline {subsection}{\numberline {2.2}Conception}{3}
-\contentsline {subsection}{\numberline {2.3}Design}{4}
-\contentsline {subsection}{\numberline {2.4}Implantation}{4}
-\contentsline {subsection}{\numberline {2.5}Tests}{4}
-\contentsline {subsection}{\numberline {2.6}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{4}
-\contentsline {subsection}{\numberline {2.7}Maintenance}{4}
-\contentsline {section}{\numberline {3}Conclusion}{6}
-\contentsline {subsection}{\numberline {3.1}Remerciements}{6}
+\contentsline {section}{\numberline {2}Analyse des besoins}{3}
+\contentsline {section}{\numberline {3}Conception}{4}
+\contentsline {section}{\numberline {4}Design}{5}
+\contentsline {subsection}{\numberline {4.1}Mod\IeC {\'e}lisation}{5}
+\contentsline {subsection}{\numberline {4.2}Justification de l'utilisation de POST vs GET}{6}
+\contentsline {subsection}{\numberline {4.3}Stabilit\IeC {\'e} et abstraction}{7}
+\contentsline {section}{\numberline {5}Impl\IeC {\'e}mentation}{8}
+\contentsline {section}{\numberline {6}Tests et documentation}{9}
+\contentsline {section}{\numberline {7}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{10}
+\contentsline {section}{\numberline {8}Maintenance}{12}
+\contentsline {section}{\numberline {9}Conclusion}{13}
+\contentsline {subsection}{\numberline {9.1}Remerciements}{13}
