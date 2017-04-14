@@ -48,11 +48,8 @@ class BiBlerWrapper(object):
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.sql"
         biblerapp.exportFile(path, 'sql')
-        try:
-            f = open("/var/www/html/ift3150/export/export.sql", 'r')
-            return f.read()
-        except:
-            return 'Error' # you can send an 404 error here if you want
+        f=open(path,'r')
+        return f.read()
     @staticmethod
     def bibtexToCSV(self,bibtex):
         '''
@@ -65,11 +62,8 @@ class BiBlerWrapper(object):
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.csv"
         biblerapp.exportFile(path, 'csv')
-        try:
-            f = open("/var/www/html/ift3150/export/export.csv", 'r')
-            return f.read()
-        except:
-            return 'Error' # you can send an 404 error here if you want
+        f=open(path,'r')
+        return f.read()
     @staticmethod
     def bibtexTobibtex(self,bibtex):
         '''
@@ -82,11 +76,9 @@ class BiBlerWrapper(object):
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.bib"
         biblerapp.exportFile(path, 'bib')
-        try:
-            f = open(path, 'r')
-            return f.read()
-        except:
-            return 'Error' # you can send an 404 error here if you want
+        f=open(path,'r')
+        return f.read()
+        
     @staticmethod
     def bibtexToHTML(self,bibtex):
         '''
@@ -98,10 +90,9 @@ class BiBlerWrapper(object):
         biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.html"
-        file=tempfile.NamedTemporaryFile(delete=False)
-        biblerapp.exportFile(file, 'html')
-        return file.read()
-
+        biblerapp.exportFile(path, 'html')
+        f=open(path,'r')
+        return f.read()
     @staticmethod
     def previewEntry(self,bibtex):
         '''

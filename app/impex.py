@@ -80,6 +80,7 @@ class Exporter(ImpEx):
         except:
             raise
         finally:
+            return 5
             self.closeDB()
         return total
     

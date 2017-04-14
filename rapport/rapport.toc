@@ -2,11 +2,11 @@
 \contentsline {subsection}{\numberline {1.1}Terminologie}{2}
 \contentsline {section}{\numberline {2}Webservice}{3}
 \contentsline {subsection}{\numberline {2.1}Analyse des besoins}{3}
-\contentsline {subsection}{\numberline {2.2}Conception et fonctionnement}{3}
-\contentsline {subsection}{\numberline {2.3}Design}{3}
-\contentsline {subsection}{\numberline {2.4}Implantation}{3}
-\contentsline {subsection}{\numberline {2.5}Tests}{3}
-\contentsline {subsection}{\numberline {2.6}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{3}
-\contentsline {subsection}{\numberline {2.7}Maintenance}{3}
-\contentsline {section}{\numberline {3}Conclusion}{5}
-\contentsline {subsection}{\numberline {3.1}Remerciements}{5}
+\contentsline {subsection}{\numberline {2.2}Conception}{3}
+\contentsline {subsection}{\numberline {2.3}Design}{4}
+\contentsline {subsection}{\numberline {2.4}Implantation}{4}
+\contentsline {subsection}{\numberline {2.5}Tests}{4}
+\contentsline {subsection}{\numberline {2.6}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{4}
+\contentsline {subsection}{\numberline {2.7}Maintenance}{4}
+\contentsline {section}{\numberline {3}Conclusion}{6}
+\contentsline {subsection}{\numberline {3.1}Remerciements}{6}

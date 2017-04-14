@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  12 APR 2017 13:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  12 APR 2017 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,48 +528,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-[4] (./rapport.bbl [5
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+[4] [5] (./rapport.bbl [6
 
 ]
 ! Undefined control sequence.
 l.5 \newblock \url
                   {http://webpy.org/}.
 ? 
-) [6
+) [7
 
 ] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 5444 strings out of 494946
- 79256 string characters out of 6180982
- 380674 words of memory out of 5000000
- 8730 multiletter control sequences out of 15000+600000
+ 5446 strings out of 494946
+ 79273 string characters out of 6180982
+ 378674 words of memory out of 5000000
+ 8732 multiletter control sequences out of 15000+600000
  9276 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 26i,7n,40p,841b,2899s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 26i,7n,40p,841b,3454s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on rapport.pdf (7 pages, 67954 bytes).
+Output written on rapport.pdf (8 pages, 70284 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
