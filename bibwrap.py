@@ -138,5 +138,4 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True
-        #bibtex=BiBlerApp.formatBibTeX(self, bibtex)
         return biblerapp

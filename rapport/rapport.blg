@@ -4,45 +4,45 @@ The top-level auxiliary file: rapport.aux
 The style file: plain.bst
 Database file #1: references.bib
 Warning--to sort, need author or key in Webpy1
-You've used 5 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            513 strings with 4174 characters,
-and the built_in function-call counts, 985 in all, are:
-= -- 86
-> -- 29
+            518 strings with 4223 characters,
+and the built_in function-call counts, 1187 in all, are:
+= -- 104
+> -- 36
 < -- 0
-+ -- 13
-- -- 8
-* -- 27
-:= -- 157
-add.period$ -- 14
-call.type$ -- 5
-change.case$ -- 19
++ -- 16
+- -- 10
+* -- 32
+:= -- 190
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 23
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 35
-empty$ -- 112
-format.name$ -- 8
-if$ -- 216
+cite$ -- 7
+duplicate$ -- 42
+empty$ -- 134
+format.name$ -- 10
+if$ -- 260
 int.to.chr$ -- 0
-int.to.str$ -- 5
+int.to.str$ -- 6
 missing$ -- 0
-newline$ -- 27
-num.names$ -- 8
-pop$ -- 55
+newline$ -- 32
+num.names$ -- 10
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 14
+purify$ -- 17
 quote$ -- 0
-skip$ -- 30
+skip$ -- 36
 stack$ -- 0
-substring$ -- 25
-swap$ -- 5
+substring$ -- 30
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 24
 warning$ -- 1
-while$ -- 8
-width$ -- 6
-write$ -- 45
+while$ -- 10
+width$ -- 7
+write$ -- 54
 (There was 1 warning)

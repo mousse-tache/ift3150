@@ -9,7 +9,6 @@ sys.path.append(abspath)
 os.chdir(abspath)
 import web
 from bibwrap import BiBlerWrapper
-render = web.template.render('templates', cache=False)
 
 urls = (
     '/formatbibtex/(.*)', 'FormatBibTeX',

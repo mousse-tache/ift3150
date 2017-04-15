@@ -7,8 +7,11 @@
 \contentsline {subsection}{\numberline {4.2}Justification de l'utilisation de POST vs GET}{6}
 \contentsline {subsection}{\numberline {4.3}Stabilit\IeC {\'e} et abstraction}{7}
 \contentsline {section}{\numberline {5}Impl\IeC {\'e}mentation}{8}
-\contentsline {section}{\numberline {6}Tests et documentation}{9}
-\contentsline {section}{\numberline {7}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{10}
-\contentsline {section}{\numberline {8}Maintenance}{12}
-\contentsline {section}{\numberline {9}Conclusion}{13}
-\contentsline {subsection}{\numberline {9.1}Remerciements}{13}
+\contentsline {section}{\numberline {6}Tests et documentation}{11}
+\contentsline {subsection}{\numberline {6.1}Tests unitaires}{11}
+\contentsline {subsection}{\numberline {6.2}Tests de performance}{11}
+\contentsline {subsection}{\numberline {6.3}Documentation}{11}
+\contentsline {section}{\numberline {7}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{12}
+\contentsline {section}{\numberline {8}Maintenance}{13}
+\contentsline {section}{\numberline {9}Conclusion}{14}
+\contentsline {subsection}{\numberline {9.1}Remerciements}{14}

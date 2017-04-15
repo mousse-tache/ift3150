@@ -30,6 +30,7 @@
   breakatwhitespace=true,
   tabsize=3
 }
+\lstdefinestyle{py}{basicstyle=\ttfamily,keywordstyle=\slshape,language=Python}
 \setlength{\parindent}{2pt}
 \author{Félix Bélanger-Robillard}
 \title{Rapport - Projet informatique}
@@ -87,7 +88,7 @@ Le webservice dépend de BiBler et n'utilise que la classe BiBlerApp qui corresp
 Il a été décidé que le webservice possèderait deux fichiers. Le premier, application.py, servirait de controlleur afin de rediriger les demandes du client vers les méthodes contenues dans la classe BiBlerWrapper, qui, comme son nom l'indique, servait d'emballeur aux méthodes de la classe BiblerApp du code source de BiBler, ce qui correspond au diagramme de classes suivant, en incluant le Proxy:
 
 
-\includegraphics{ClassDiagram.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{ClassDiagram.png}
 
 
 Au niveau architecturel, les liens entre BiBler, le webservice et ReLiS sont définis tels que présenté dans le diagramme de composantes suivant:
@@ -116,17 +117,9 @@ Si l'on considère seulement le webservice, sans son intégration, il est dépen
 
 
 \section{Implémentation}
+Au sein du fichier application.py,  la variable urls est une collection de paires de strings correspondant respectivant à une URI et à une classe. Les classes présentent jouent le rôle de handler par rapport aux requêtes. La variable app instancie l'application à partir d'une méthode du framework qui prend en paramètre la variable urls et le résultat de la méthode globals$()$ qui représente un dictionnaire du module actuel \cite{PDa}. la variable application instancie l'application à partir de la variable app sur laquelle est appellée wsgifunc(), ce qui permet à l'application d'être déployée sur un serveur Apache 2 sur lequel est installé le module mod\_wsgi qui permet d'instancier des serveurs http à partir de code Python. Pour traiter les données soumises, chacune des classes possèdent une méthode POST qui est appelée lorsque qu'un client soumet une requête http POST à une URL correspondante à une des classes handlers. Chacun des handlers appelle la méthode web.data() qui permet de récupérer les données envoyées via les protocoles web, ce qui permet de récupérer les données du client. Sur ce résultat, on appelle decode() pour transformer l'objet byte-like en string qui être utilisée comme argument pour les méthodes de BiBlerWrapper. Avant d'être soumise, la méthode urllib.parse.unquote\_plus() est utilisée pour parser les espaces et caractères spéciaux qui devraient avoir été encodés du côté client. Toutes les fonctions du package web viennent du framework web.py. \newline
 
-\section{Tests et documentation}
-
-Les cas de tests unitaires étant les mêmes que pour BiBler, les oracles des Tests de BiBler ont été réutilisés pour les tests unitaires du webservice. La batterie de tests est beaucoup plus restreintes, puisqu'une grande partie des méthodes de BiBler n'ont pas été dévoilées dans son webservice. Les tests ont été rédigés grâce au module Pyunit pour Eclipse IDE. Le tout est colligé dans la classe TestAll qui exécute successivement l'ensemble des tests. \newline
-
-La documentation a été rédigée en docstring rst \cite{PDGa}, puis générée avec l'outil Sphinx-python. Une fois la documentation rédigée correctement en rst, Sphinx peut être utilisé. la commande \$ sphinxp-quickstart invoquée dans un terminal créé un répertoire avec une configuration de base pour la génération de la documentation. Le répertoire contient trois sous-répertoires build, Makefile et source. La configuration peut être modifiée au sein du fichier config.py du sous-répertoire source. La commande \$ sphinx-build -b html sourcedir builddir permet de générer les fichiers rst à partir du code source python. Finalement, la commande \$ make html invoquée à partir du répertoire initialement créé par \$ sphinx-quickstart. La dernière commande construit les fichiers html à partir des fichiers compris dans le répertoire source. À partir du fichier index.html, on peut maintenant naviguer la documentation du code source et également choisir de lire des extraits ici du code source. 
-
-\section{Intégration et déploiement}
-
-
-Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et de le transformer en fichier BibTeX corrigé, en CSV, en HTML ou en SQL. Par contre, cela nécessite l'écriture dans un fichier, ce qui cause problème dans des cas d'écriture en simultanée. Au moment de la rédaction, il avait été choisi de ne pas intégrer ses fonctionnalités au webservice. Par contre, par l'utilisation du patron d'état, il serait possible d'assurer qu'une seule requête client n'accède au fichier à la fois. Par contre, cela ralentirait nettement la vitesse de retour du webservice puisque les clients demandant l'écriture sur un fichier en cours d'écriture devrait attendre que celui-ci soit disponible afin l'exécution de sa requête.\newline
+Le fichier bibwrap.py contient la classe BiBlerWrapper dont l'ensemble des méthodes sont statiques. La méthode privée getBiblerApp() est utilisée par les autres méthodes pour générer des instances locales de BiblerApp qui est nécessaire à l'appel de l'ensemble des méthodes. Les méthodes sur les entrées commencent toujours par ajouter une entrée, puis retourne le résultat de la méthode voulue. La classe fait usage du patron de l'emballeur pour encapsuler les méthodes de BiblerApp \newline
 
 L'utilisation attendue du webservice est via une requête http POST vers une méthode du webservice. Dans le cas de ReLiS ou d'un service basé sur PHP, la fonction suivante permet de faire une requête, attendu que \$url contient l'url de la méthode désirée et que \$data contient les données à transmettre sous forme de String: 
 \begin{lstlisting}
@@ -147,17 +140,47 @@ function httpPost($url, $data)
 
 \end{lstlisting}
 
-Pour encore plus simplifier la chose, le patron de Proxy a été implémenté dans une petite librairie php afin d'encapsuler davantage les requêtes. Une classe Singleton BiBlerPost qui contient un attribut privé URL et un attribut privé instance sert à invoquer les méthodes du webservice et les méthodes publiques de la classe ont le même nom que les classes correspondantes du webservice et ne demandent qu'un argument qui correspond au contenu à envoyer pour traitement. On peut modifier l'URL qui correspond à l'emplacement du webservice avec la méthode setURL qui prend un URI en argument. Des modifications subséquentes au webservice pourrait étendre la classe actuelle afin d'incorporer un plus grand nombre de méthodes ou de modifier le comportement des méthodes actuelles par override afin de correspondre à une modification éventuelle de l'interface fournie par le webservice. Avec le Proxy actuel, le client n'a donc qu'à déterminer l'emplacement web du webservice appelée et à appeler les méthodes désirées sur l'instance unique de la classe.
+Pour encore plus simplifier la chose, le patron de Proxy a été implémenté dans une petite librairie php afin d'encapsuler davantage les requêtes. Une classe Singleton BiBlerPost qui contient un attribut privé URL et un attribut privé instance sert à invoquer les méthodes du webservice et les méthodes publiques de la classe ont le même nom que les classes correspondantes du webservice et ne demandent qu'un argument qui correspond au contenu à envoyer pour traitement. On peut modifier l'URL qui correspond à l'emplacement du webservice avec la méthode setURL qui prend un URI en argument. Des modifications subséquentes au webservice pourrait étendre la classe actuelle afin d'incorporer un plus grand nombre de méthodes ou de modifier le comportement des méthodes actuelles par override afin de correspondre à une modification éventuelle de l'interface fournie par le webservice. Avec le Proxy actuel, le client n'a donc qu'à déterminer l'emplacement web du webservice appelée et à appeler les méthodes désirées sur l'instance unique de la classe. \newline
 
-Pour l'intégration avec ReLiS, un champ abstract a été ajouté au code originel de BiBler. Pour ce faire, abstract a été ajouté à l'énumération des champs possibles. Une classe Abstract héritant de Field a égalément été ajoutée et abstract a été ajouté aux champs possibles de divers éléments, comme Article.
+Pour l'intégration avec ReLiS, un champ abstract a été ajouté au code originel de BiBler. Pour ce faire, abstract a été ajouté à l'énumération des champs possibles. Une classe Abstract héritant de Field a égalément été ajoutée et abstract a été ajouté aux champs possibles de divers éléments, comme Article. Toutes les modifications se retrouvent dans le paquet app de BiBler. \newline
+
+La classe Abstract a été ajoutée au fichier field.py:
+\begin{lstlisting}[style=py]
+class Abstract(Field):
+    """
+    The field for the abstract.
+    """
+    def __init__(self, value = ''):
+        super(Abstract, self).__init__(FieldName.Abstract, value)
+        
+    def format(self):
+        self.value = self.value.replace(' ', '')
+
+\end{lstlisting}
+
+Dans fieldname.py, la ligne suivante a été ajoutée dans l'énumération
+\textquote{Abstract= 'abstract' \# not part of the BibTeX standard}
+
+À la ligne 26 de app\_interface.py, la variable \textquote{
+    Abstract = 'abstract'} a été ajoutée et dans la méthode list(), \textquote{EntryListColumn.Abstract} a été ajouté en fin de liste. Pour terminer, dans entry.py, EntryListColumn.Abstract a été ajouté dans les champs optionnels (attribut self.optionalFields) des différentes classes héritant de Entry.
+
+\section{Tests et documentation}
+\subsection{Tests unitaires}
+Les cas de tests unitaires étant les mêmes que pour BiBler, les oracles des Tests de BiBler ont été réutilisés pour les tests unitaires du webservice. La batterie de tests est beaucoup plus restreintes, puisqu'une grande partie des méthodes de BiBler n'ont pas été dévoilées dans son webservice. Les tests ont été rédigés grâce au module Pyunit pour Eclipse IDE. Le tout est colligé dans la classe TestAll qui exécute successivement l'ensemble des tests. \newline
+\subsection{Tests de performance}
+\subsection{Documentation}
+La documentation a été rédigée en docstring rst \cite{PDGa}, puis générée avec l'outil Sphinx-python. Une fois la documentation rédigée correctement en rst, Sphinx peut être utilisé. la commande \$ sphinxp-quickstart invoquée dans un terminal créé un répertoire avec une configuration de base pour la génération de la documentation. Le répertoire contient trois sous-répertoires build, Makefile et source. La configuration peut être modifiée au sein du fichier config.py du sous-répertoire source. La commande \$ sphinx-build -b html sourcedir builddir permet de générer les fichiers rst à partir du code source python. Finalement, la commande \$ make html invoquée à partir du répertoire initialement créé par \$ sphinx-quickstart. La dernière commande construit les fichiers html à partir des fichiers compris dans le répertoire source. À partir du fichier index.html, on peut maintenant naviguer la documentation du code source et également choisir de lire des extraits ici du code source. 
+
+\section{Intégration et déploiement}
+
+
+Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et de le transformer en fichier BibTeX corrigé, en CSV, en HTML ou en SQL. Par contre, cela nécessite l'écriture dans un fichier, ce qui cause problème dans des cas d'écriture en simultanée. Au moment de la rédaction, il avait été choisi de ne pas intégrer ses fonctionnalités au webservice. Par contre, par l'utilisation du patron d'état, il serait possible d'assurer qu'une seule requête client n'accède au fichier à la fois. Par contre, cela ralentirait nettement la vitesse de retour du webservice puisque les clients demandant l'écriture sur un fichier en cours d'écriture devrait attendre que celui-ci soit disponible afin l'exécution de sa requête.\newline
+
 
 
 \section{Maintenance}
-
-Impact, maintenance
-performance
-
-
+\subsection{Analyse d'impact des modifications sur BiBler}
+Avec la demande d'ajout d'un champ au niveau du BibTeX pour l'utilisationde ReLiS, les modifications décrites plus tôt ont été effectuées. L'ensemble de ces modifications sont le fruit d'une analyse du code afin de comprendre les impacts qu'une telle demande a sur la maintenance du code source de BiBler. Le point de départ de l'analyse se trouve au niveau de l'enum FieldName, tel que suggéré par Eugène Syriani lors des discussions initiales sur cette demande de changement. \newline
 
 \section{Conclusion}
 \subsection{Remerciements}

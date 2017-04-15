@@ -9,6 +9,11 @@
 \newblock re{S}tructured{T}ext {D}ocstring {F}ormat.
 \newblock Accessed: 2017-04-13.
 
+\bibitem{PDa}
+{P}ython {D}oc.
+\newblock globals().
+\newblock Accessed: 2017-04-15.
+
 \bibitem{w3b}
 {W}3.
 \newblock Get.
