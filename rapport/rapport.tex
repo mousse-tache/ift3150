@@ -44,20 +44,6 @@
 \section{Introduction}
 Le présent projet avait pour but de créer un webservice servant les fonctionnalités de BiBler, puis de l'intégrer à ReLiS (Revue Littéraire Systématique) afin d'offrir une plateforme web permettant d'allier les fonctionnalités propres à ces deux logiciels, le tout sous la supervision de monsieur Eugène Syriani et avec la précieuse collaboration de Brice-Michel Bigendako qui s'occupe de ReLiS. Le projet intégrait des connaissances en PHP et Python. Le projet m'a aussi amené à travailler avec des serveurs de type Apache 2 et avec les systèmes de permissions Unix. Pour la rédaction du rapport, j'ai utilisé de nouveaux paquets LaTeX et au niveau de la documentation du projet, j'ai appris à utiliser Sphinx pour la générer.  \newline
 
-
--Mentionner tout, montrer qu'il y avait des challenges non trivial
-
--Section: 
-intro( définition de concepts, termes et outils ),
- core,
-  évaluation,
-   conclusion,
-    remerciements,
-     références bibliographiques (technologies),
-      annexes, 
-
-conclusion: résumé, puis future
-sabrina et khady, A+
 \subsection{Terminologie}
 BiBler est un outil de gestion de référence bibliographique. BiBler se sert de BibTeX, une librairie LaTeX de gestion référence, et offre une interface graphique afin de faciliter l'importation, l'exportation et la modification de références. BiBler offre également un aperçu des références et facilite l'insertion au sein de textes. BiBler génère également des clés d'identification pour les documents insérés qui peuvent ensuite être utilisés dans un document LaTeX.  \newline
 
@@ -181,6 +167,8 @@ Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et 
 \section{Maintenance}
 \subsection{Analyse d'impact des modifications sur BiBler}
 Avec la demande d'ajout d'un champ au niveau du BibTeX pour l'utilisationde ReLiS, les modifications décrites plus tôt ont été effectuées. L'ensemble de ces modifications sont le fruit d'une analyse du code afin de comprendre les impacts qu'une telle demande a sur la maintenance du code source de BiBler. Le point de départ de l'analyse se trouve au niveau de l'enum FieldName, tel que suggéré par Eugène Syriani lors des discussions initiales sur cette demande de changement. \newline
+
+
 
 \section{Conclusion}
 \subsection{Remerciements}

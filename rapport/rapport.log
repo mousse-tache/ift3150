@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  15 APR 2017 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  15 APR 2017 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,36 +601,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
@@ -638,27 +638,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--77
 File: DomainClassDiagram.png Graphic file (type png)
 
 <use DomainClassDiagram.png>
-Package pdftex.def Info: DomainClassDiagram.png used on input line 81.
+Package pdftex.def Info: DomainClassDiagram.png used on input line 67.
 (pdftex.def)             Requested size: 466.38126pt x 174.89297pt.
 
-Overfull \hbox (27.5338pt too wide) in paragraph at lines 81--82
+Overfull \hbox (27.5338pt too wide) in paragraph at lines 67--68
 [][] 
  []
 
 [4
 
  <./DomainClassDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
 <ClassDiagram.png, id=24, 742.4538pt x 174.8934pt>
 File: ClassDiagram.png Graphic file (type png)
  <use ClassDiagram.png>
-Package pdftex.def Info: ClassDiagram.png used on input line 91.
+Package pdftex.def Info: ClassDiagram.png used on input line 77.
 (pdftex.def)             Requested size: 440.85352pt x 103.84804pt.
 
-Overfull \hbox (2.00606pt too wide) in paragraph at lines 91--92
+Overfull \hbox (2.00606pt too wide) in paragraph at lines 77--78
 [][] 
  []
 
@@ -666,80 +666,85 @@ Overfull \hbox (2.00606pt too wide) in paragraph at lines 91--92
 File: ComponentDiagram.png Graphic file (type png)
 
 <use ComponentDiagram.png>
-Package pdftex.def Info: ComponentDiagram.png used on input line 96.
+Package pdftex.def Info: ComponentDiagram.png used on input line 82.
 (pdftex.def)             Requested size: 441.80951pt x 71.788pt.
 
-Overfull \hbox (2.96205pt too wide) in paragraph at lines 96--97
+Overfull \hbox (2.96205pt too wide) in paragraph at lines 82--83
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
 [5
 
  <./ClassDiagram.png> <./ComponentDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
 
-Overfull \hbox (0.77852pt too wide) in paragraph at lines 122--123
+Overfull \hbox (0.77852pt too wide) in paragraph at lines 108--109
 \OT1/cmr/m/n/12 pour g^^Sen^^Serer des in-stances lo-cales de Bibler-App qui es
 t n^^Secessaire ^^Ra l'appel de l'ensemble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
 [12
 
-] [13
+]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+[13
 
 ] (./rapport.bbl [14
 
@@ -760,7 +765,7 @@ m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport.pdf (16 pages, 196608 bytes).
+Output written on rapport.pdf (16 pages, 196946 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
