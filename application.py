@@ -1,5 +1,5 @@
 '''
-@author: Felix Belanger Robillard
+:Author: Felix Belanger Robillard
 '''
 #-*- coding: utf-8 -*-
 import sys, os

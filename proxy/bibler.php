@@ -5,16 +5,16 @@
 */
 class BiBlerProxy
 {
-	private $instance;
-	private $url;
+	private static $instance;
+	private static $url;
 
-	function __construct()	{}
+	private function __construct()	{}
 
-	function setURL($uri) {
-		$url=$uri;
+	public function setURL($uri) {
+		$this->url=$uri;
 	}
 
-	static function getInstance() {
+	public static function getInstance() {
 		if (!$instance) {
 			$instance=new BiBlerProxy();
 		}
@@ -39,24 +39,24 @@ class BiBlerProxy
 	    return $response;
 	}
 
-	function addEntry($data) {
-		return httpPost($url."addentry/",$data);
+	public function addEntry($data) {
+		return $this->httpPost($this->url."addentry/",$data);
 	}
 
-	function getBibtex($data) {
-		return httpPost($url."getbibtex/",$data);
+	public function getBibtex($data) {
+		return $this->httpPost($this->url."getbibtex/",$data);
 	}
 
-	function formatBibtex($data) {
-		return httpPost($url."formatbibtex/",$data);
+	public function formatBibtex($data) {
+		return $this->httpPost($this->url."formatbibtex/",$data);
 	}
 
-	function previewEntry($data) {
-		return httpPost($url."previewentry/",$data);
+	public function previewEntry($data) {
+		return $this->httpPost($this->url."previewentry/",$data);
 	}
 
-	function validateEntry($data) {
-		return httpPost($url."validateentry/",$data);
+	public function validateEntry($data) {
+		return $this->httpPost($this->url."validateentry/",$data);
 	}
 
 

@@ -1,15 +1,7 @@
-bibweb
-======
+ift3150
+=======
 
 .. toctree::
    :maxdepth: 4
 
-   app
-   app
-   bibler
-   bibwrap
-   gui
-   testApp
-   testWebservice
-   utils
-   web
+   ift3150

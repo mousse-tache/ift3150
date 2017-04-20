@@ -1,7 +1,8 @@
-bibwrap module
-==============
+Wrapper documentation
+=====================
 
 .. automodule:: bibwrap
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+
+.. autoclass:: BiBlerWrapper
+   :members:

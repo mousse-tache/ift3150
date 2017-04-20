@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  15 APR 2017 15:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  18 APR 2017 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -638,124 +638,156 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--63
 File: DomainClassDiagram.png Graphic file (type png)
 
 <use DomainClassDiagram.png>
-Package pdftex.def Info: DomainClassDiagram.png used on input line 67.
+Package pdftex.def Info: DomainClassDiagram.png used on input line 68.
 (pdftex.def)             Requested size: 466.38126pt x 174.89297pt.
 
-Overfull \hbox (27.5338pt too wide) in paragraph at lines 67--68
+Overfull \hbox (25.5338pt too wide) in paragraph at lines 68--69
 [][] 
  []
 
 [4
 
  <./DomainClassDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 <ClassDiagram.png, id=24, 742.4538pt x 174.8934pt>
 File: ClassDiagram.png Graphic file (type png)
  <use ClassDiagram.png>
-Package pdftex.def Info: ClassDiagram.png used on input line 77.
+Package pdftex.def Info: ClassDiagram.png used on input line 80.
 (pdftex.def)             Requested size: 440.85352pt x 103.84804pt.
-
-Overfull \hbox (2.00606pt too wide) in paragraph at lines 77--78
-[][] 
- []
 
 <ComponentDiagram.png, id=25, 441.8106pt x 71.7882pt>
 File: ComponentDiagram.png Graphic file (type png)
 
 <use ComponentDiagram.png>
-Package pdftex.def Info: ComponentDiagram.png used on input line 82.
+Package pdftex.def Info: ComponentDiagram.png used on input line 88.
 (pdftex.def)             Requested size: 441.80951pt x 71.788pt.
 
-Overfull \hbox (2.96205pt too wide) in paragraph at lines 82--83
+Overfull \hbox (0.96205pt too wide) in paragraph at lines 88--89
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 [5
 
- <./ClassDiagram.png> <./ComponentDiagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+ <./ClassDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+[6 <./ComponentDiagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
 
-Overfull \hbox (0.77852pt too wide) in paragraph at lines 108--109
+Overfull \hbox (0.77852pt too wide) in paragraph at lines 115--116
 \OT1/cmr/m/n/12 pour g^^Sen^^Serer des in-stances lo-cales de Bibler-App qui es
 t n^^Secessaire ^^Ra l'appel de l'ensemble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
 [11
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+] <tempsparrequete.pdf, id=53, 845.1575pt x 597.23125pt>
+File: tempsparrequete.pdf Graphic file (type pdf)
+
+<use tempsparrequete.pdf>
+Package pdftex.def Info: tempsparrequete.pdf used on input line 171.
+(pdftex.def)             Requested size: 440.85141pt x 311.52802pt.
+
+<tempsparequeteparrequete.pdf, id=54, 845.1575pt x 597.23125pt>
+File: tempsparequeteparrequete.pdf Graphic file (type pdf)
+
+<use tempsparequeteparrequete.pdf>
+Package pdftex.def Info: tempsparequeteparrequete.pdf used on input line 176.
+(pdftex.def)             Requested size: 440.85141pt x 311.52802pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./tempsparrequete.pdf>] [13 <./tempsparequeteparrequete.pdf>] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
-[12
+[15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
-[13
+[16
 
-] (./rapport.bbl [14
+] (./rapport.bbl [17
 
-]) [15
+]) [18
+
+] (./rapport.lof)
+\tf@lof=\write4
+\openout4 = `rapport.lof'.
+
+ [19
 
 ] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 6933 strings out of 494946
- 101566 string characters out of 6180982
+ 6947 strings out of 494946
+ 101873 string characters out of 6180982
  408897 words of memory out of 5000000
- 10159 multiletter control sequences out of 15000+600000
+ 10168 multiletter control sequences out of 15000+600000
  9614 words of font info for 35 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  40i,7n,49p,1580b,3452s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -765,10 +797,10 @@ m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport.pdf (16 pages, 196946 bytes).
+Output written on rapport.pdf (20 pages, 494456 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

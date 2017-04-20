@@ -63,9 +63,10 @@ Plusieurs choix ont été effectués par rapport à l'implantation du webservice
 
 Pour l'intégration avec ReLiS, puisque ReLiS est construit sur une architecture Modèle-Vue-Controlleur (MVC), l'idée est d'ajouter un controlleur spécifiquement pour ReLiS avec une vue associée. Tout en sachant les méthodes dévoilées par le webservice, il a été également pensé de faire appel au patron de proxy pour encapsuler les méthodes PHP nécessaires aux appels vers le webservice. De cette façon, les travaux futurs sur ReLiS ou tout autre application php se verraient grandement facilités. Le conception mène donc au diagramme suivant: 
 
-
+\begin{figure}[h!]
+\caption{Diagramme de classes}
 \includegraphics{DomainClassDiagram.png}
-
+\end{figure}
 
 \section{Design}
 \subsection{Modélisation}
@@ -74,12 +75,18 @@ Le webservice dépend de BiBler et n'utilise que la classe BiBlerApp qui corresp
 Il a été décidé que le webservice possèderait deux fichiers. Le premier, application.py, servirait de controlleur afin de rediriger les demandes du client vers les méthodes contenues dans la classe BiBlerWrapper, qui, comme son nom l'indique, servait d'emballeur aux méthodes de la classe BiblerApp du code source de BiBler, ce qui correspond au diagramme de classes suivant, en incluant le Proxy:
 
 
+\begin{figure}[h!]
+\caption{Design logiciel}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{ClassDiagram.png}
-
+\end{figure}
 
 Au niveau architecturel, les liens entre BiBler, le webservice et ReLiS sont définis tels que présenté dans le diagramme de composantes suivant:
 
+
+\begin{figure}[h!]
+\caption{Diagramme de composantes}
 \includegraphics{ComponentDiagram.png}
+\end{figure}
 
 Selon les besoins, il fallait étendre les fonctionnalités de BiBler pour accommoder les besoins spécifiques de ReLiS, mais l'interfaçage était déjà présent avec la classe BiBlerApp, il fallait créer de toute pièce le webservice en utilisant l'interface fournie par BiBlerApp et de créer une interface permettant à ReLiS de l'utiliser. Il fallait étendre également ReLiS pour pouvoir utiliser l'interface prochaine du webservice. \newline
 
@@ -154,13 +161,30 @@ Dans fieldname.py, la ligne suivante a été ajoutée dans l'énumération
 \subsection{Tests unitaires}
 Les cas de tests unitaires étant les mêmes que pour BiBler, les oracles des Tests de BiBler ont été réutilisés pour les tests unitaires du webservice. La batterie de tests est beaucoup plus restreintes, puisqu'une grande partie des méthodes de BiBler n'ont pas été dévoilées dans son webservice. Les tests ont été rédigés grâce au module Pyunit pour Eclipse IDE. Le tout est colligé dans la classe TestAll qui exécute successivement l'ensemble des tests. \newline
 \subsection{Tests de performance}
+Les performances du webservice ont été testées de façon locale entre le webservice et une application php, tous deux installés sur un serveur Apache 2. L'application php a soumise des requêtes au webservice 10 fois pour chaque pallier décider. Ces palliers sont de 50, 100, 200, 500, 1000 et 2000 requêtes. Le temps requis au webservice pour retourner une réponse à l'application php a ensuite été compilé dans un fichier texte, puis analysé statistiquement. À partir de 3000 requêtes, le temps de réponse commençant à dépasser une minute, le serveur a commencé à renvoyer une erreur service indisponible, qui est la limite de temps permise au niveau de la configuration du serveur Apache utilisé. Le contenu d'une requête typique était @BOOK{, author = {Adams}, publisher = {Bookclub}, title = {H2G2}, year = {1978}, volume = {1} }. \newline
+
+Le temps de réponse moyen par requête a été de 19,91 ms pour un total de 38500 requêtes envoyées. Les graphiques qui suivent représentent respectivement le temps par nombre de requête et le temps par requête par nombre de requête. Le premier est afficher sur une échelle logarithmique avec un courbe de tendance linéaire. Son coefficient de détermination est de 0.994, ce qui nous montre très clairement que le temps pris était linéaire, même en soumettant 2000 requêtes au webservice. Les points sur le graphique correspondent aux valeurs individuelles des batteries de tests. Le graphique suivant représente le ratio temps par requête selon le nombre de requêtes soumises et les résultats suggèrent que le temps par requête demeure stable même sous un apport important de requêtes. Cette quantité de requêtes en simultanée serait immense pour la portée actuelle du projet, il est donc assez sûr de dire que le webservice devrait avoir des performances stables en environnement de production. Bémol, bien que la machine de test ne soit pas uniquement dédiée au webservice, le fait que les tests soient locaux accélère définitivement le temps de réponse. En contexte de production, la vitesse des réponses variera grandement en fonction de la connexion de l'utilisateur. \newline
+
+
+\begin{figure}[h!]
+\caption{Temps total par nombre de requêtes soumises}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tempsparrequete.pdf}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Temps par requête selon le nombre de requêtes soumises}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tempsparequeteparrequete.pdf}
+\end{figure}
+
+Il est tout de même intéressé de noter que les écarts-types des valeurs de temps pour un nombre de requêtes données sont de plus en plus restreints à mesure que le nombre de requête grandi, ce qui est certainement causé par un amortissement du poids moyen de chaque requête pour l'ensemble du temps de la requête-mère. La seule donnée probante à ce sujet est que le temps pris par requête à 2000 requête est plus grand que pour 1000 requêtes dans 8 cas sur 10. Considérant l'échelle utilisée, l'écart est tout de même petit, mais les meilleurs performances moyennes par requêtes se retrouvent tout de même dans le cap des 1000 requêtes avec une performance de 18.46 ms, ce qui est tout de même 1.5 ms plus rapide que la moyenne globale et 2.2 ms plus rapide que pour la moyenne sur les tests de 2000 requêtes. On parle tout de même d'une moyenne environ 10\$ plus rapide, ce qui fait des tests à 1000 requêtes 7.26\% plus rapide que la moyenne globale et 10.73\% que la moyenne des 2000 requêtes.
+
 \subsection{Documentation}
 La documentation a été rédigée en docstring rst \cite{PDGa}, puis générée avec l'outil Sphinx-python. Une fois la documentation rédigée correctement en rst, Sphinx peut être utilisé. la commande \$ sphinxp-quickstart invoquée dans un terminal créé un répertoire avec une configuration de base pour la génération de la documentation. Le répertoire contient trois sous-répertoires build, Makefile et source. La configuration peut être modifiée au sein du fichier config.py du sous-répertoire source. La commande \$ sphinx-build -b html sourcedir builddir permet de générer les fichiers rst à partir du code source python. Finalement, la commande \$ make html invoquée à partir du répertoire initialement créé par \$ sphinx-quickstart. La dernière commande construit les fichiers html à partir des fichiers compris dans le répertoire source. À partir du fichier index.html, on peut maintenant naviguer la documentation du code source et également choisir de lire des extraits ici du code source. 
 
 \section{Intégration et déploiement}
 
 
-Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et de le transformer en fichier BibTeX corrigé, en CSV, en HTML ou en SQL. Par contre, cela nécessite l'écriture dans un fichier, ce qui cause problème dans des cas d'écriture en simultanée. Au moment de la rédaction, il avait été choisi de ne pas intégrer ses fonctionnalités au webservice. Par contre, par l'utilisation du patron d'état, il serait possible d'assurer qu'une seule requête client n'accède au fichier à la fois. Par contre, cela ralentirait nettement la vitesse de retour du webservice puisque les clients demandant l'écriture sur un fichier en cours d'écriture devrait attendre que celui-ci soit disponible afin l'exécution de sa requête.\newline
+Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et de le transformer en fichier BibTeX corrigé, en CSV, en HTML ou en SQL. Par contre, cela nécessite l'écriture dans un fichier, ce qui cause problème dans des cas d'écriture en simultanée. Au moment de la rédaction, il avait été choisi de retirer ces fonctionnalités du webservice. Par contre, par l'utilisation du patron d'état, il serait possible d'assurer qu'une seule requête client n'accède au fichier à la fois. Par contre, cela ralentirait nettement la vitesse de retour du webservice puisque les clients demandant l'écriture sur un fichier en cours d'écriture devrait attendre que celui-ci soit disponible afin l'exécution de sa requête.\newline
 
 
 
@@ -168,15 +192,25 @@ Les méthodes d'export ont pour attrait de pouvoir envoyer un fichier BibTeX et 
 \subsection{Analyse d'impact des modifications sur BiBler}
 Avec la demande d'ajout d'un champ au niveau du BibTeX pour l'utilisationde ReLiS, les modifications décrites plus tôt ont été effectuées. L'ensemble de ces modifications sont le fruit d'une analyse du code afin de comprendre les impacts qu'une telle demande a sur la maintenance du code source de BiBler. Le point de départ de l'analyse se trouve au niveau de l'enum FieldName, tel que suggéré par Eugène Syriani lors des discussions initiales sur cette demande de changement. \newline
 
+Le type de changement demandé est incrémental et perfectif. La requête de changement était d'ajouter le champ abstract dans le fichier BibTeX. Les concepts principaux associés à cette requête sont ajouter, champ et abstract. La recherche associée au sein du code source a été au niveau de la classe Field et de son contexte d'utilisation. C'est pourquoi, il a également fallu modifié les classes utilisant field pour incorporer le champ abstract et ajouter abstract à un enum. Au final, l'impact était assez localisé, ce qui a permis de faire les changements rapidement, même si l'impact était tout de même plus grand que ce qui avait été initialement pensé.
+
+
 
 
 \section{Conclusion}
+L'ensemble du projet a été fort intéressant. Bien que le webservice ait pu être réalisé, son déploiement a été laissé de côté en attendant que le serveur devant l'héberger soit en fonction. D'autres contretemps, comme l'erreur fatale de la mise à jour de Manjaro, ont ralentis les avancées prévues. Malgré tout cela, Les fonctionnalités de BiBler sont prêtes à être utiliser à travers le web et une librairie PHP est disponible pour aider les développeurs, même si l'intégration avec ReLiS n'a pas été entièrement complétée. Au final, le travail fait n'est pas perdu et les ressources produites resteront disponibles.\newline
+
+Pour le futur, il serait intéressant d'intégrer les fonctionnalités omises de BiBler par les contraintes d'écriture. Également, le webservice pourrait éventuellement intégrer des sessions afin de permettre à un utilisateur spécifique de conserver en mémoire les entrées ajoutées pour le cours d'une session, sans toutefois intégrer de base de données au webservice. Le format actuel par requêtes http POST permet une grande flexibilité pour l'avenir du webservice de demeure ouvert à l'extension.
+
 \subsection{Remerciements}
+
+Ce projet m'a permis de toucher à PHP, Python, Apache, Sphinx, Pydev, BiBler, ReLiS et LaTeX. Les apprentissages ont été importants et infiniment intéressants. Python est un langage polyvalent et qui fait preuve d'une grande élégance syntaxique et possède des propriétés intéressantes sur la plan fonctionnel, impératif et orienté-objet. Je travaillerai prochainement au Laboratoire de Santé Publique du Québec où se trouvent une grande concentration d'experts en santé publique et il est certain que ceux-ci pourraient être intéressés par des outils tels que BiBler et ReLiS qui ont un grand potentiel d'automatisation dans un contexte de recherche scientifique. \mewline
 Un merci infini à ceux qui m'ont aidé et accompagnés dans cette tâche: \newline
 Eugène Syriani, Ph.D., pour la supervision et les conseils précieux\newline
 Brice-Michel Bigendak, pour ReLiS et le débogage en PHP,
 L'équipe technique du DIRO, pour le support technique et le serveur
 \bibliography{references}{}
+\listoffigures
 \bibliographystyle{plain}
 \end{document}
 

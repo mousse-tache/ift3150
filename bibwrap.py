@@ -1,5 +1,5 @@
 '''
-@author: Felix Belanger Robillard
+:Author: Felix Belanger Robillard
 '''
 #-*- coding: utf-8 -*-
 #import sys, os
@@ -14,24 +14,28 @@ class BiBlerWrapper(object):
     @staticmethod
     def addEntry(self, bibtex):
         '''
+
         Takes a BibTeX string and outputs the corresponding EntryDict
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: L{EntryDict}.
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: The written Entry from the BibTeX
+        :rtype: EntryDict
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         return biblerapp.iterAllEntries()
 
     @staticmethod
     def getBibTeX(self, bibtex):
         '''
-        Takes a BibTeX string and outputs the corresponding BibTex
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: L{EntryDict}.
+
+        Takes a BibTeX string and outputs the corresponding corrected BibTeX string
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: The corrected BibTeX including overriden key
+        :rtype: str
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         b = biblerapp.addEntry(bibtex)
         return biblerapp.getBibTeX(b)
 
@@ -39,12 +43,14 @@ class BiBlerWrapper(object):
     @staticmethod
     def bibtexToSQL(self,bibtex):
         '''
-        Takes a BibTeX string and outputs a SQL table
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: SQL file.
+
+        Takes a BibTeX string and outputs a .sql file
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: SQL table
+        :rtype: File
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.sql"
         biblerapp.exportFile(path, 'sql')
@@ -53,12 +59,14 @@ class BiBlerWrapper(object):
     @staticmethod
     def bibtexToCSV(self,bibtex):
         '''
+
         Takes a BibTeX string and outputs a .csv file
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: CSV file.
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: CSV file
+        :rtype: File
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.csv"
         biblerapp.exportFile(path, 'csv')
@@ -67,12 +75,14 @@ class BiBlerWrapper(object):
     @staticmethod
     def bibtexTobibtex(self,bibtex):
         '''
+
         Takes a BibTeX string and outputs a .bib file
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: BibTeX file.
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: Bib file
+        :rtype: File
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.bib"
         biblerapp.exportFile(path, 'bib')
@@ -82,12 +92,14 @@ class BiBlerWrapper(object):
     @staticmethod
     def bibtexToHTML(self,bibtex):
         '''
+
         Takes a BibTeX string and outputs a .html file
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: HTML file.
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: HTML file
+        :rtype: File
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         path="/var/www/html/ift3150/export/export.html"
         biblerapp.exportFile(path, 'html')
@@ -96,24 +108,28 @@ class BiBlerWrapper(object):
     @staticmethod
     def previewEntry(self,bibtex):
         '''
+
         Takes a BibTeX string and outputs an HTML preview
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: str.
+        
+        :param str bibtex: The BibTeX string to be processed.
+        :return: HTML preview for the entry
+        :rtype: str
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         entryid = biblerapp.addEntry(bibtex)
         return biblerapp.previewEntry(entryid)
 
     @staticmethod
     def validateEntry(self, bibtex):
         '''
+
         Takes a BibTeX string and outputs 1 if the entry is valid or 0 if it's not
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: boolean .
+
+        :param str bibtex: The BibTeX string to be processed.
+        :return: Number of valid entries, which will be 0 or 1
+        :rtype: int
         '''
-        biblerapp=BiBlerWrapper.__getBiblerApp(self, bibtex)
+        biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
         return biblerapp.validateAllEntries()
  
@@ -121,20 +137,25 @@ class BiBlerWrapper(object):
     @staticmethod
     def formatBibtex(self, bibtex):
         '''
+
         Takes a BibTeX string and outputs a formatted BibTeX
-        @type bibtex: L{str}
-        @param bibtex: The BibTeX string to be processed.
-        @return: boolean .
+
+        :param str bibtex: The BibTeX string to be processed.
+        :return: BibTeX entry
+        :rtype: str
         '''
         return BiBlerApp.formatBibTeX(self, bibtex)
 
 
 
     @staticmethod
-    def __getBiblerApp(self, bibtex):
+    def __getBiblerApp():
         '''
-        Returns an instance of BiblerApp with proper settings and
-        an entry based on the bibtex given
+
+        Returns an instance of BiblerApp.
+
+        :return: Bibler's API instance
+        :rtype: BiblerApp
         '''
         biblerapp=BiBlerApp()
         biblerapp.preferences.overrideKeyGeneration = True

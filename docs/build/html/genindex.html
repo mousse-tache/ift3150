@@ -7,15 +7,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &#8212; BiBler webservice 0.1 documentation</title>
+    <title>Index &#8212; BiBler webservice 0.9 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -26,16 +26,21 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="search" title="Search" href="search.html" /> 
   </head>
   <body role="document">
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="#" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BiBler webservice documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -113,28 +118,12 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="application.html#application.AddEntry.GET">GET() (application.AddEntry method)</a>
-
-      <ul>
-        <li><a href="application.html#application.BibTeXtoBibTeX.GET">(application.BibTeXtoBibTeX method)</a>
+      <li><a href="application.html#application.GetBibTeX">GetBibTeX (class in application)</a>
 </li>
-        <li><a href="application.html#application.BibTeXtoCSV.GET">(application.BibTeXtoCSV method)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bibwrap.html#bibwrap.BiBlerWrapper.getBibTeX">getBibTeX() (bibwrap.BiBlerWrapper static method)</a>
 </li>
-        <li><a href="application.html#application.BibTeXtoHTML.GET">(application.BibTeXtoHTML method)</a>
-</li>
-        <li><a href="application.html#application.BibTeXtoSQL.GET">(application.BibTeXtoSQL method)</a>
-</li>
-        <li><a href="application.html#application.FormatBibTeX.GET">(application.FormatBibTeX method)</a>
-</li>
-        <li><a href="application.html#application.Parse.GET">(application.Parse method)</a>
-</li>
-        <li><a href="application.html#application.PreviewEntry.GET">(application.PreviewEntry method)</a>
-</li>
-        <li><a href="application.html#application.ValidateEntry.GET">(application.ValidateEntry method)</a>
-</li>
-        <li><a href="application.html#application.index.GET">(application.index method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -149,8 +138,28 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="application.html#application.Parse">Parse (class in application)</a>
+      <li><a href="application.html#application.AddEntry.POST">POST() (application.AddEntry method)</a>
+
+      <ul>
+        <li><a href="application.html#application.BibTeXtoBibTeX.POST">(application.BibTeXtoBibTeX method)</a>
 </li>
+        <li><a href="application.html#application.BibTeXtoCSV.POST">(application.BibTeXtoCSV method)</a>
+</li>
+        <li><a href="application.html#application.BibTeXtoHTML.POST">(application.BibTeXtoHTML method)</a>
+</li>
+        <li><a href="application.html#application.BibTeXtoSQL.POST">(application.BibTeXtoSQL method)</a>
+</li>
+        <li><a href="application.html#application.FormatBibTeX.POST">(application.FormatBibTeX method)</a>
+</li>
+        <li><a href="application.html#application.GetBibTeX.POST">(application.GetBibTeX method)</a>
+</li>
+        <li><a href="application.html#application.PreviewEntry.POST">(application.PreviewEntry method)</a>
+</li>
+        <li><a href="application.html#application.ValidateEntry.POST">(application.ValidateEntry method)</a>
+</li>
+        <li><a href="application.html#application.index.POST">(application.index method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="application.html#application.PreviewEntry">PreviewEntry (class in application)</a>
@@ -188,13 +197,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 
-   <div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
+   
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -210,17 +213,21 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2017, Félix Bélanger-Robillard.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="#" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BiBler webservice documentation</a> &#187;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
   </body>
 </html>

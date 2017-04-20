@@ -1,7 +1,6 @@
-application module
-==================
+Handler documentation
+=====================
 
 .. automodule:: application
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
