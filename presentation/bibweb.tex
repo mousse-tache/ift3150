@@ -16,7 +16,7 @@
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-
+\usepackage{graphicx}
 \title[Un webservice pour BiBler]{Présentation de projet - IFT3150}
 \author{Félix Bélanger-Robillard}
 \institute{DIRO}
@@ -38,15 +38,10 @@
 \begin{frame}{Introduction}
 
 \begin{itemize}
-  \item Your introduction goes here!
-  \item Use \texttt{itemize} to organize your main points.
+  \item But du projet: mettre BiBler en webservice
+  \item Intégration avec ReLis
 \end{itemize}
 
-\vskip 1cm
-
-\begin{block}{Examples}
-Some examples of commonly used commands and features are included, to help you get started.
-\end{block}
 
 \end{frame}
 
@@ -63,36 +58,124 @@ Some examples of commonly used commands and features are included, to help you g
   \item Intégration et déploiement
   \item Maintenance
   \item Conclusion
+  \item Questions
 \end{enumerate}
 
 \end{frame}
 
 \begin{frame}{Terminologie}
 
+\begin{block}{BiBler}
+Logiciel de gestion de références
+\end{block}
+
+\begin{block}{ReLiS}
+Système de Revue Littéraire Systématique. Logiciel web utilisant le framework CodeIgniter.
+\end{block}
+
 \end{frame}
 
 \begin{frame}{Analyse des besoins}
 
+\begin{block}{BiBler} 
+\begin{itemize}
+  \item Conserver au minimum les dépendances technologiques
+  \item Déploiement possible sur Apache
+\end{itemize}
+\end{block}
+
+\begin{block}{ReLiS} 
+\begin{itemize}
+  \item Ajouter Abstract au BiBtex
+  \item Générer les clés
+  \item Formatter les BibTeX
+\end{itemize}
+\end{block}
+
+
 \end{frame}
+
+
 \begin{frame}{Conception}
+
+\begin{itemize}
+  \item Instances localisées de BibLerApp
+  \item Handler pour les requêtes client, Wrapper pour accéder à l'API
+  \item Proxy pour accéder à partir de PHP
+  \item Utilisation de web.py
+\end{itemize}
+
+
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{DomainClassDiagram.png}
+
 
 \end{frame}
 \begin{frame}{Design}
 
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{ClassDiagram.png}
+\end{frame}
+
+\begin{frame}{Design}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{ComponentDiagram.png}
 \end{frame}
 \begin{frame}{Implémentation}
 
+\begin{itemize}
+  \item Regard sur l'application Python
+  \item Regard sur PHP
+  \item Regard sur ReLiS
+\end{itemize}
 \end{frame}
 \begin{frame}{Tests et documentation}
 
+\begin{itemize}
+  \item Regard sur les test unitaires
+  \item Performance
+  \item Documentation Sphinx
+\end{itemize}
+
 \end{frame}
+\begin{frame}{Performance}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{tempsparrequete.pdf}
+\end{frame}
+
+\begin{frame}{Performance}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{tempsparequeteparrequete.pdf}
+\end{frame}
+
 \begin{frame}{Intégration et déploiement}
 
-\end{frame}
-\begin{frame}{Maintenance}
+\begin{block}{Configuration du webservice} 
+\begin{itemize}
+  \item Apache 2.4
+  \item mod\_wsgi pour Apache
+  \item PHP 5.5
+  \item En attente de la disponibilité du serveur
+\end{itemize}
+\end{block}
 
 \end{frame}
+
+\begin{frame}{Maintenance}
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{impact.png} 
+\end{frame}
+
+\begin{frame}{Maintenance}
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{maintenance.png}
+\end{frame}
+
+
 \begin{frame}{Conclusion}
+\begin{itemize}
+  \item Webservice complété
+  \item Intégration incomplète, mais Proxy disponible
+  \item Performances stables
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Période de questions}
 
 \end{frame}
 

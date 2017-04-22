@@ -14,5 +14,6 @@
 \contentsline {section}{\numberline {7}Int\IeC {\'e}gration et d\IeC {\'e}ploiement}{15}
 \contentsline {section}{\numberline {8}Maintenance}{16}
 \contentsline {subsection}{\numberline {8.1}Analyse d'impact des modifications sur BiBler}{16}
-\contentsline {section}{\numberline {9}Conclusion}{17}
-\contentsline {subsection}{\numberline {9.1}Remerciements}{17}
+\contentsline {subsection}{\numberline {8.2}Maintenance du webservice}{17}
+\contentsline {section}{\numberline {9}Conclusion}{19}
+\contentsline {subsection}{\numberline {9.1}Remerciements}{19}
