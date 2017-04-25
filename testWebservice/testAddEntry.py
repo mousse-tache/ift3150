@@ -3,12 +3,12 @@ Created on March 10, 2017
 @author: Félix Bélanger-Robillard
 '''
 import sys, os
-abspath = os.path.dirname("/var/www/bibweb/")
+abspath = os.path.dirname("/var/www/html/ift3150/")
 sys.path.append(abspath)
 os.chdir(abspath)
 
 import unittest
-from TestWebservice import oracle
+import oracle
 from bibwrap import BiBlerWrapper
 
 

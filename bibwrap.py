@@ -41,70 +41,19 @@ class BiBlerWrapper(object):
 
 
     @staticmethod
-    def bibtexToSQL(self,bibtex):
+    def exportString(self, bibtex, format):
         '''
 
-        Takes a BibTeX string and outputs a .sql file
+        Takes a BibTeX string and outputs a string to the specified format
         
         :param str bibtex: The BibTeX string to be processed.
-        :return: SQL table
-        :rtype: File
+        :return: String to specified format
+        :rtype: string
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
-        path="/var/www/html/ift3150/export/export.sql"
-        biblerapp.exportFile(path, 'sql')
-        f=open(path,'r')
-        return f.read()
-    @staticmethod
-    def bibtexToCSV(self,bibtex):
-        '''
-
-        Takes a BibTeX string and outputs a .csv file
-        
-        :param str bibtex: The BibTeX string to be processed.
-        :return: CSV file
-        :rtype: File
-        '''
-        biblerapp=BiBlerWrapper.__getBiblerApp()
-        biblerapp.addEntry(bibtex)
-        path="/var/www/html/ift3150/export/export.csv"
-        biblerapp.exportFile(path, 'csv')
-        f=open(path,'r')
-        return f.read()
-    @staticmethod
-    def bibtexTobibtex(self,bibtex):
-        '''
-
-        Takes a BibTeX string and outputs a .bib file
-        
-        :param str bibtex: The BibTeX string to be processed.
-        :return: Bib file
-        :rtype: File
-        '''
-        biblerapp=BiBlerWrapper.__getBiblerApp()
-        biblerapp.addEntry(bibtex)
-        path="/var/www/html/ift3150/export/export.bib"
-        biblerapp.exportFile(path, 'bib')
-        f=open(path,'r')
-        return f.read()
-        
-    @staticmethod
-    def bibtexToHTML(self,bibtex):
-        '''
-
-        Takes a BibTeX string and outputs a .html file
-        
-        :param str bibtex: The BibTeX string to be processed.
-        :return: HTML file
-        :rtype: File
-        '''
-        biblerapp=BiBlerWrapper.__getBiblerApp()
-        biblerapp.addEntry(bibtex)
-        path="/var/www/html/ift3150/export/export.html"
-        biblerapp.exportFile(path, 'html')
-        f=open(path,'r')
-        return f.read()
+        return biblerapp.exportString(format)
+         
     @staticmethod
     def previewEntry(self,bibtex):
         '''

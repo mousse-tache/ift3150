@@ -3,10 +3,10 @@ Created on March 12, 2017
 @author: Félix Bélanger-Robillard
 '''
 import unittest
-from .testAddEntry import TestAddEntry
-from .testPreviewEntry import TestPreviewEntry
-from .testValidate import TestValidate
-from .testFormatBibtex import TestFormatBibtex
+from testAddEntry import TestAddEntry
+from testPreviewEntry import TestPreviewEntry
+from testValidate import TestValidate
+from testFormatBibtex import TestFormatBibtex
 
 def testApp():
     suite = unittest.TestSuite()

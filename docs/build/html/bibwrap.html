@@ -82,72 +82,18 @@
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="bibwrap.BiBlerWrapper.bibtexToCSV">
-<em class="property">static </em><code class="descname">bibtexToCSV</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToCSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToCSV" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes a BibTeX string and outputs a .csv file</p>
+<dt id="bibwrap.BiBlerWrapper.exportString">
+<em class="property">static </em><code class="descname">exportString</code><span class="sig-paren">(</span><em>bibtex</em>, <em>format</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.exportString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.exportString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a BibTeX string and outputs a string to the specified format</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bibtex</strong> (<em>str</em>) &#8211; The BibTeX string to be processed.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">CSV file</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">String to specified format</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">File</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="bibwrap.BiBlerWrapper.bibtexToHTML">
-<em class="property">static </em><code class="descname">bibtexToHTML</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToHTML"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToHTML" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes a BibTeX string and outputs a .html file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bibtex</strong> (<em>str</em>) &#8211; The BibTeX string to be processed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HTML file</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">File</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="bibwrap.BiBlerWrapper.bibtexToSQL">
-<em class="property">static </em><code class="descname">bibtexToSQL</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexToSQL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexToSQL" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes a BibTeX string and outputs a .sql file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bibtex</strong> (<em>str</em>) &#8211; The BibTeX string to be processed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">SQL table</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">File</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="bibwrap.BiBlerWrapper.bibtexTobibtex">
-<em class="property">static </em><code class="descname">bibtexTobibtex</code><span class="sig-paren">(</span><em>bibtex</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bibwrap.html#BiBlerWrapper.bibtexTobibtex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bibwrap.BiBlerWrapper.bibtexTobibtex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes a BibTeX string and outputs a .bib file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bibtex</strong> (<em>str</em>) &#8211; The BibTeX string to be processed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Bib file</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">File</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
 </tr>
 </tbody>
 </table>

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* 
+* Proxy to be used to call the BiBler's webservice at a distance
 */
 class BiBlerProxy
 {
@@ -59,5 +59,19 @@ class BiBlerProxy
 		return $this->httpPost($this->url."validateentry/",$data);
 	}
 
+	public function bibtextobibtex($data) {
+		return $this->httpPost($this->url."bibtextobibtex/",$data);
+	}
 
+	public function bibtextosql($data) {
+		return $this->httpPost($this->url."bibtextosql/",$data);
+	}
+
+	public function bibtextocsv($data) {
+		return $this->httpPost($this->url."bibtextocsv/",$data);
+	}
+
+	public function bibtextohtml($data) {
+		return $this->httpPost($this->url."bibtextohtml/",$data);
+	}
 }

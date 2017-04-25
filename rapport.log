@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  15 APR 2017 09:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  24 APR 2017 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -465,22 +465,21 @@ File: lstlang2.sty 2015/06/04 1.6 listings language file
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-
-No file rapport.aux.
+ (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 \c@lstlisting=\count106
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -576,194 +575,55 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 38.
+(Font)              <14.4> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 38.
+(Font)              <7> on input line 39.
 
 [1
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-No file rapport.toc.
+(./rapport.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
 \tf@toc=\write3
 \openout3 = `rapport.toc'.
 
-[1
+ [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
 
-LaTeX Warning: Citation `Webpy1' on page 3 undefined on input line 68.
+LaTeX Warning: Citation `Webpy1' on page 3 undefined on input line 55.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
-
- []
-
-[3
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-LaTeX Warning: File `DomainClassDiagram.png' not found on input line 80.
-
-
-! Package pdftex.def Error: File `DomainClassDiagram.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80 \includegraphics{DomainClassDiagram.png}
-                                             
-? 
-[4
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-
-LaTeX Warning: File `ClassDiagram.png' not found on input line 90.
-
-
-! Package pdftex.def Error: File `ClassDiagram.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.90 ...theight,keepaspectratio]{ClassDiagram.png}
-                                                  
-? 
-
-Overfull \hbox (2.12122pt too wide) in paragraph at lines 90--91
-[][] 
- []
-
-[5
-
-]
-
-LaTeX Warning: File `ComponentDiagram.png' not found on input line 95.
-
-
-! Package pdftex.def Error: File `ComponentDiagram.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 \includegraphics{ComponentDiagram.png}
-                                           
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
-
- []
-
-
-LaTeX Warning: Citation `w3b' on page 7 undefined on input line 104.
-
-
-LaTeX Warning: Citation `w3c' on page 7 undefined on input line 111.
-
-
-LaTeX Warning: Citation `w3c' on page 7 undefined on input line 111.
-
-
-LaTeX Warning: Citation `w3a' on page 7 undefined on input line 113.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-
- []
-
-[8] [9
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
-
- []
-
-
-LaTeX Warning: Citation `PDGa' on page 10 undefined on input line 127.
-
-[10
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
-
- []
-
-[11
-
-] [12] [13
-
-]
-No file rapport.bbl.
-[14
-
-] (./rapport.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
-Here is how much of TeX's memory you used:
- 6767 strings out of 494946
- 99547 string characters out of 6180982
- 410897 words of memory out of 5000000
- 10007 multiletter control sequences out of 15000+600000
- 7007 words of font info for 26 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 40i,7n,40p,1209b,2899s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport.pdf (15 pages, 86070 bytes).
-PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Underfull \hbox (badness 10000) in paragraph at l

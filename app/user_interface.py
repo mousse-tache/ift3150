@@ -51,6 +51,12 @@ class BiBlerApp(IApplication):
         @see: L{gui.app_interface.IApplication.exportFile}.
         """
         return self.__executor.execute(ExportCommand(self.__manager, path, exportFormat))
+                
+    def exportString(self, exportFormat):
+        """
+        @see: L{gui.app_interface.IApplication.exportFile}.
+        """
+        return self.__executor.execute(ExportStringCommand(self.__manager, exportFormat))
         
     def openFile(self, path, openFormat):
         """

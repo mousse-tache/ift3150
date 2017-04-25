@@ -74,7 +74,7 @@ class Exporter(ImpEx):
             self._preprocess()
             for entry in self.entries:
                 output = self._exportEntry(entry)
-                self.database.write(output + '\n')
+                self.write(output)
                 total += 1
             self._postprocess()
         except:
@@ -83,6 +83,9 @@ class Exporter(ImpEx):
             return 5
             self.closeDB()
         return total
+
+    def write(output):
+        self.database.write(output + '\n')
     
     def _exportEntry(self):
         pass
@@ -92,8 +95,7 @@ class Exporter(ImpEx):
     
     def _postprocess(self):
         pass
-    
-    
+        
 class BibTeXExporter(Exporter):
     """
     Export a list of L{Entries<app.entry.Entry>} to a BibTeX file.
@@ -318,6 +320,236 @@ ALTER TABLE PaperAuthor
 
 ''')   
 
+class StringExporter(Exporter):
+    """
+    Export a list of L{Entries<app.entry.Entry>} to a specified format in a string.
+    """
+    def __init__(self):
+        """
+        @param path: The path to a file.
+        """
+        self.database = None
+    
+    def openDB(self, mode):
+        """
+        Open the database in a specific mode.
+        @type mode: L{str}
+        @param mode: Any mode support by python U{open<https://docs.python.org/3.5/library/functions.html#open>}.
+        """
+        self.database = ""
+    
+    def closeDB(self):
+        """
+        Close the database.
+        """
+        pass
+
+    def write(output):
+        self.database+=output + '\n'
+
+class CSVStringExporter(StringExporter):
+    """
+    Export a list of L{Entries<app.entry.Entry>} to a CSV formatted String.
+    """
+    def __init__(self, entries):
+        """
+        @type path: L{str}
+        @param path: The path to a file.
+        @type entries: list of L{app.entry.Entry}
+        @param entries: The list of entries to export.
+        """
+        super(CSVExporter, self).__init__(entries)
+    
+    def _exportEntry(self, entry):
+        """
+        Export to CSV (tabs). The first row consists of the field names for each column.
+        @rtype: L{int}
+        @return: The total number of entries successfully exported.
+        @raise Exception: If an error occurred during the export process.
+        """
+        return entry.toCSV()
+    
+    def _preprocess(self):
+        self.database.write('entrytype\t' + '\t'.join(FieldName.iterAllFieldNames()) + '\n')    # headers
+    
+    
+class HTMLStringExporter(StringExporter):
+    """
+    Export a list of L{Entries<app.entry.Entry>} to an HTML file in the default style as a String.
+    """
+    def __init__(self, entries):
+        """
+        @type path: L{str}
+        @param path: The path to a file.
+        @type entries: list of L{app.entry.Entry}
+        @param entries: The list of entries to export.
+        """
+        super(HTMLExporter, self).__init__(entries)
+    
+    def _exportEntry(self, entry):
+        """
+        Export to HTML following the default style.
+        @rtype: L{int}
+        @return: The total number of entries successfully exported.
+        @raise Exception: If an error occurred during the export process.
+        """
+        txt = '<li>'
+        if Preferences().bibStyle == settings.BibStyle.ACM:
+            txt += entry.toHtmlACM()
+        else:
+            txt += entry.toHtmlDefault()
+        paper = entry.getField(FieldName.Paper).getValue()
+        if paper:
+            txt += '<a href="%s" class="pdfLink">&nbsp;&nbsp;</a></li>' % paper
+        return txt + '</li>'
+    
+    def _preprocess(self):
+        self.database.write('<html><head><style>ol.ref{ list-style-type: none; counter-reset: refCounter; margin-top: 0px; padding: .495% 0 0 0;}ol.ref li:before{ content: "[" counter(refCounter, decimal) "] "; counter-increment: refCounter;}ol.ref li{ display: block; padding-top: .99%;}a.pdfLink{ background: url("http://image.chromefans.org/fileicons/format/pdf.png") center right no-repeat; padding-right: 1.48515%; margin-right: .297%; text-decoration: none;}</style></head><body><ol class="ref">\n')
+    
+    def _postprocess(self):
+        self.database.write('</ol></body></html>')
+    
+    
+class MySQLStringExporter(StringExporter):
+    """
+    Export a list of L{Entries<app.entry.Entry>} to a MySQL database script as String.
+    """
+    def __init__(self, path, entries):
+        """
+        @type path: L{str}
+        @param path: The path to a file.
+        @type entries: list of L{app.entry.Entry}
+        @param entries: The list of entries to export.
+        """
+        super(MySQLExporter, self).__init__(path, entries)
+        ext = os.path.splitext(path)[1]
+        self.papersPath = path
+        self.authorsPath = os.path.join(os.path.dirname(path), os.path.basename(path)[:-len(ext)] + '_authors' + ext)
+        self.assignmentsPath = os.path.join(os.path.dirname(path), os.path.basename(path)[:-len(ext)] + '_assignments' + ext)
+        self.unique_contributors = {}
+    
+    def exportPapers(self):
+        papers = 0
+        unique_authors = 0
+        try:
+            self.path = self.papersPath
+            self.openDB('w')
+            self._preprocess()
+            for entry in self.entries:
+                output = self._exportEntry(entry)
+                self.database.write(output + '\n')
+                papers += 1
+                for contributor in entry.getContributors():
+                    contributor = str(contributor)
+                    for uc in self.unique_contributors.keys():
+                        if contributor.lower() == uc.lower():
+                            self.unique_contributors[uc][1].append(papers)
+                            break
+                    else:
+                        unique_authors += 1
+                        self.unique_contributors[contributor] = [unique_authors,[papers]]
+            self._postprocess()
+        except:
+            raise
+        finally:
+            self.closeDB()
+        return papers
+    
+    def exportAuthors(self):
+        total = 0
+        try:
+            self.path = self.authorsPath
+            self.openDB('w')
+            for c in self.unique_contributors.keys():
+                self.database.write('''INSERT INTO Author (id, name) VALUES (%d, N'%s');\n''' % (self.unique_contributors[c][0], utils.escapeSQLCharacters(c)))
+                total += 1
+        except:
+            raise
+        finally:
+            self.closeDB()
+        return total
+    
+    def exportAssignments(self):
+        total = 0
+        try:
+            self.path = self.assignmentsPath
+            self.openDB('w')
+            for c in self.unique_contributors.keys():
+                for p in self.unique_contributors[c][1]:
+                    self.database.write('''INSERT INTO PaperAuthor (paperId,authorId) VALUES (%d, %d);\n''' % (p, self.unique_contributors[c][0]))
+                    total += 1
+        except:
+            raise
+        finally:
+            self.closeDB()
+        return total
+    
+    def export(self):
+        """
+        The export process. It outputs 3 files:
+            * one for the database tables and the INSERT statements of the papers,
+            * a second one for the authors,
+            * and a last one for the paper author assignments.
+            
+        @rtype: L{int}
+        @return: The total number of entries successfully exported.
+        @raise Exception: If an error occurred during the export process.
+        """
+        papers = self.exportPapers()
+        authors = self.exportAuthors()
+        assignments = self.exportAssignments()
+        if papers > 0 and authors > 0 and assignments > 0:
+            return papers
+        else:
+            return 0
+    
+    def _exportEntry(self, entry):
+        """
+        Export to a MySQL database script.
+        @rtype: L{int}
+        @return: The total number of entries successfully exported.
+        @raise Exception: If an error occurred during the export process.
+        """
+        return entry.toSQL()
+    
+    def _preprocess(self):
+        # create the database tables
+        self.database.write('''
+-- Table for Papers
+DROP TABLE IF EXISTS Paper;
+CREATE TABLE IF NOT EXISTS Paper (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    bibtexKey VARCHAR(100) NOT NULL UNIQUE KEY,
+    title VARCHAR(200) DEFAULT NULL,
+    doi VARCHAR(200) DEFAULT NULL,
+    bibtex longtext NOT NULL,
+    preview longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Table for Authors
+DROP TABLE IF EXISTS Author;
+CREATE TABLE IF NOT EXISTS Author (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL UNIQUE KEY
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Table for paper author assignments
+DROP TABLE IF EXISTS PaperAuthor;
+CREATE TABLE IF NOT EXISTS PaperAuthor (
+    paperId INT(11) NOT NULL,
+    authorId INT(11) NOT NULL,
+    PRIMARY KEY (paperId, authorId),
+    KEY FK_Paper (paperId),
+    KEY FK_Author (authorId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE PaperAuthor
+    ADD CONSTRAINT FK_Author FOREIGN KEY (authorId) REFERENCES Author (id),
+    ADD CONSTRAINT FK_Paper FOREIGN KEY (paperId) REFERENCES Paper (id);
+
+''')   
+
+
+    
 
 class Importer(ImpEx):
     """

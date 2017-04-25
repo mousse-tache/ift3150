@@ -91,70 +91,19 @@
 
 
     <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="BiBlerWrapper.bibtexToSQL"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.bibtexToSQL">[docs]</a>    <span class="k">def</span> <span class="nf">bibtexToSQL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bibtex</span><span class="p">):</span>
+<div class="viewcode-block" id="BiBlerWrapper.exportString"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.exportString">[docs]</a>    <span class="k">def</span> <span class="nf">exportString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bibtex</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 
-<span class="sd">        Takes a BibTeX string and outputs a .sql file</span>
+<span class="sd">        Takes a BibTeX string and outputs a string to the specified format</span>
 <span class="sd">        </span>
 <span class="sd">        :param str bibtex: The BibTeX string to be processed.</span>
-<span class="sd">        :return: SQL table</span>
-<span class="sd">        :rtype: File</span>
+<span class="sd">        :return: String to specified format</span>
+<span class="sd">        :rtype: string</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">biblerapp</span><span class="o">=</span><span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">__getBiblerApp</span><span class="p">()</span>
         <span class="n">biblerapp</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="n">bibtex</span><span class="p">)</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/var/www/html/ift3150/export/export.sql&quot;</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">exportFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;sql&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
-    <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="BiBlerWrapper.bibtexToCSV"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.bibtexToCSV">[docs]</a>    <span class="k">def</span> <span class="nf">bibtexToCSV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bibtex</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">        Takes a BibTeX string and outputs a .csv file</span>
-<span class="sd">        </span>
-<span class="sd">        :param str bibtex: The BibTeX string to be processed.</span>
-<span class="sd">        :return: CSV file</span>
-<span class="sd">        :rtype: File</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">biblerapp</span><span class="o">=</span><span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">__getBiblerApp</span><span class="p">()</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="n">bibtex</span><span class="p">)</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/var/www/html/ift3150/export/export.csv&quot;</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">exportFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
-    <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="BiBlerWrapper.bibtexTobibtex"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.bibtexTobibtex">[docs]</a>    <span class="k">def</span> <span class="nf">bibtexTobibtex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bibtex</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">        Takes a BibTeX string and outputs a .bib file</span>
-<span class="sd">        </span>
-<span class="sd">        :param str bibtex: The BibTeX string to be processed.</span>
-<span class="sd">        :return: Bib file</span>
-<span class="sd">        :rtype: File</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">biblerapp</span><span class="o">=</span><span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">__getBiblerApp</span><span class="p">()</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="n">bibtex</span><span class="p">)</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/var/www/html/ift3150/export/export.bib&quot;</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">exportFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;bib&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
-        
-    <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="BiBlerWrapper.bibtexToHTML"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.bibtexToHTML">[docs]</a>    <span class="k">def</span> <span class="nf">bibtexToHTML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bibtex</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">        Takes a BibTeX string and outputs a .html file</span>
-<span class="sd">        </span>
-<span class="sd">        :param str bibtex: The BibTeX string to be processed.</span>
-<span class="sd">        :return: HTML file</span>
-<span class="sd">        :rtype: File</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">biblerapp</span><span class="o">=</span><span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">__getBiblerApp</span><span class="p">()</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="n">bibtex</span><span class="p">)</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/var/www/html/ift3150/export/export.html&quot;</span>
-        <span class="n">biblerapp</span><span class="o">.</span><span class="n">exportFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="n">biblerapp</span><span class="o">.</span><span class="n">exportString</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span></div>
+         
     <span class="nd">@staticmethod</span>
 <div class="viewcode-block" id="BiBlerWrapper.previewEntry"><a class="viewcode-back" href="../bibwrap.html#bibwrap.BiBlerWrapper.previewEntry">[docs]</a>    <span class="k">def</span> <span class="nf">previewEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bibtex</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>

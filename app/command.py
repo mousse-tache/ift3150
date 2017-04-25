@@ -111,6 +111,27 @@ class ExportCommand(Command):
         self.total = exporter(self.path, self.manager.iterEntries()).export()
         return self.total > 0
 
+class ExportStringCommand(Command):
+    def __init__(self, manager, exportFormat):
+        """
+        (Constructor)
+        """
+        super(ExportCommand, self).__init__(manager)
+        self.exportFormat = exportFormat
+        self.total = 0
+
+    def execute(self):
+        if self.exportFormat == settings.ExportFormat.BIBTEX:
+            exporter = BibTeXExporter
+        elif self.exportFormat == settings.ExportFormat.CSV:
+            exporter = CSVExporter
+        elif self.exportFormat == settings.ExportFormat.HTML:
+            exporter = HTMLExporter
+        elif self.exportFormat == settings.ExportFormat.SQL:
+            exporter = MySQLExporter
+        self.total = exporter(self.manager.iterEntries()).export()
+        return self.total > 0
+
 class GenerateAllKeysCommand(Command):
     def __init__(self, manager):
         """

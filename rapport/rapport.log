@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  22 APR 2017 18:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.5)  24 APR 2017 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,7 +781,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--198
 
  []
 
-<impact.png, id=82, 466.8642pt x 434.5836pt>
+<impact.png, id=81, 466.8642pt x 434.5836pt>
 File: impact.png Graphic file (type png)
  <use impact.png>
 Package pdftex.def Info: impact.png used on input line 202.
@@ -795,7 +795,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
-<maintenance.png, id=83, 359.4228pt x 228.3732pt>
+<maintenance.png, id=82, 359.4228pt x 228.3732pt>
 File: maintenance.png Graphic file (type png)
  <use maintenance.png>
 Package pdftex.def Info: maintenance.png used on input line 209.
@@ -836,10 +836,10 @@ m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport.pdf (22 pages, 535856 bytes).
+Output written on rapport.pdf (22 pages, 501926 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

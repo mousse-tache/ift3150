@@ -1,5 +1,19 @@
 '''
 :Author: Felix Belanger Robillard
+
+:module: The following classes are used to handle the different URLs
+
+
+Pour utiliser l'ensemble de ces classes, on s'attend à ce que l'utilisateur 
+cree passe par une requête http POST pour soumettre une reference BibTeX sous 
+forme de string au webservice. Cette reference est ensuite ajoutee à une instance
+locale de BiBler et sera ensuite traitee selon la methode appelee.
+
+On ne peut appeler l'ensemble des methodes de l'API BiBler, les methodes pouvant être
+appelees sont celles qui possèdent une classe equivalente au sein de ce module. Celles
+qui ne sont pas disponibles sont celles qui necessitaient un identifiant pour
+selectionner une entree en particulier, ce qui est caduque dans le format
+actuel.
 '''
 #-*- coding: utf-8 -*-
 import sys, os
@@ -20,22 +34,15 @@ urls = (
     '/bibtextobibtex/(.*)', 'BibTeXtoBibTeX',
     '/previewentry/(.*)', 'PreviewEntry',
     '/validateentry/(.*)', 'ValidateEntry',
-    '/help/', 'index',
     '/', 'index'
 )
-
-
-'''
-The following classes are used to handle the different URLs
-'''
 class index:
-    def POST(self):
-
-        return render.index()
+    def GET(self):
+        return None
 
 class FormatBibTeX:
     def POST(self,code):
-        data = web.data().decode()
+        data = urllib.parse.unquote_plus(web.data().decode())
         return BiBlerWrapper.formatBibtex(self,data)
 
 class AddEntry:
@@ -51,22 +58,22 @@ class GetBibTeX:
 class BibTeXtoSQL:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.bibtexToSQL(self, data)
+        return BiBlerWrapper.exportString(self, data, 'sql')
 
 class BibTeXtoCSV:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.bibtexToCSV(self, data)
+        return BiBlerWrapper.exportString(self, data, 'csv')
 
 class BibTeXtoHTML:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.bibtexToHTML(self, data)
+        return BiBlerWrapper.exportString(self, data, 'html')
 
 class BibTeXtoBibTeX:
     def POST(self,code):
-        data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.bibtexTobibtex(self, data)
+        data = urllib.parse.unquote_plus(web.data().decode('utf-8'))
+        return BiBlerWrapper.exportString(self, data, 'bib')
 
 class PreviewEntry:
     def POST(self,code):

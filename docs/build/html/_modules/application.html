@@ -50,6 +50,20 @@
   <h1>Source code for application</h1><div class="highlight"><pre>
 <span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">:Author: Felix Belanger Robillard</span>
+
+<span class="sd">:module: The following classes are used to handle the different URLs</span>
+
+
+<span class="sd">Pour utiliser l&#39;ensemble de ces classes, on s&#39;attend à ce que l&#39;utilisateur </span>
+<span class="sd">cree passe par une requête http POST pour soumettre une reference BibTeX sous </span>
+<span class="sd">forme de string au webservice. Cette reference est ensuite ajoutee à une instance</span>
+<span class="sd">locale de BiBler et sera ensuite traitee selon la methode appelee.</span>
+
+<span class="sd">On ne peut appeler l&#39;ensemble des methodes de l&#39;API BiBler, les methodes pouvant être</span>
+<span class="sd">appelees sont celles qui possèdent une classe equivalente au sein de ce module. Celles</span>
+<span class="sd">qui ne sont pas disponibles sont celles qui necessitaient un identifiant pour</span>
+<span class="sd">selectionner une entree en particulier, ce qui est caduque dans le format</span>
+<span class="sd">actuel.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="c1">#-*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
@@ -70,22 +84,15 @@
     <span class="s1">&#39;/bibtextobibtex/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;BibTeXtoBibTeX&#39;</span><span class="p">,</span>
     <span class="s1">&#39;/previewentry/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;PreviewEntry&#39;</span><span class="p">,</span>
     <span class="s1">&#39;/validateentry/(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;ValidateEntry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;/help/&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
     <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span>
 <span class="p">)</span>
-
-
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">The following classes are used to handle the different URLs</span>
-<span class="sd">&#39;&#39;&#39;</span>
 <div class="viewcode-block" id="index"><a class="viewcode-back" href="../application.html#application.index">[docs]</a><span class="k">class</span> <span class="nc">index</span><span class="p">:</span>
-<div class="viewcode-block" id="index.POST"><a class="viewcode-back" href="../application.html#application.index.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">index</span><span class="p">()</span></div></div>
+<div class="viewcode-block" id="index.GET"><a class="viewcode-back" href="../application.html#application.index.GET">[docs]</a>    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span></div></div>
 
 <div class="viewcode-block" id="FormatBibTeX"><a class="viewcode-back" href="../application.html#application.FormatBibTeX">[docs]</a><span class="k">class</span> <span class="nc">FormatBibTeX</span><span class="p">:</span>
 <div class="viewcode-block" id="FormatBibTeX.POST"><a class="viewcode-back" href="../application.html#application.FormatBibTeX.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">formatBibtex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="AddEntry"><a class="viewcode-back" href="../application.html#application.AddEntry">[docs]</a><span class="k">class</span> <span class="nc">AddEntry</span><span class="p">:</span>
@@ -101,22 +108,22 @@
 <div class="viewcode-block" id="BibTeXtoSQL"><a class="viewcode-back" href="../application.html#application.BibTeXtoSQL">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoSQL</span><span class="p">:</span>
 <div class="viewcode-block" id="BibTeXtoSQL.POST"><a class="viewcode-back" href="../application.html#application.BibTeXtoSQL.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToSQL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">exportString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;sql&#39;</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="BibTeXtoCSV"><a class="viewcode-back" href="../application.html#application.BibTeXtoCSV">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoCSV</span><span class="p">:</span>
 <div class="viewcode-block" id="BibTeXtoCSV.POST"><a class="viewcode-back" href="../application.html#application.BibTeXtoCSV.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToCSV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">exportString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="BibTeXtoHTML"><a class="viewcode-back" href="../application.html#application.BibTeXtoHTML">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoHTML</span><span class="p">:</span>
 <div class="viewcode-block" id="BibTeXtoHTML.POST"><a class="viewcode-back" href="../application.html#application.BibTeXtoHTML.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexToHTML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">exportString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="BibTeXtoBibTeX"><a class="viewcode-back" href="../application.html#application.BibTeXtoBibTeX">[docs]</a><span class="k">class</span> <span class="nc">BibTeXtoBibTeX</span><span class="p">:</span>
 <div class="viewcode-block" id="BibTeXtoBibTeX.POST"><a class="viewcode-back" href="../application.html#application.BibTeXtoBibTeX.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">bibtexTobibtex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div></div>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote_plus</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">BiBlerWrapper</span><span class="o">.</span><span class="n">exportString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;bib&#39;</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="PreviewEntry"><a class="viewcode-back" href="../application.html#application.PreviewEntry">[docs]</a><span class="k">class</span> <span class="nc">PreviewEntry</span><span class="p">:</span>
 <div class="viewcode-block" id="PreviewEntry.POST"><a class="viewcode-back" href="../application.html#application.PreviewEntry.POST">[docs]</a>    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
