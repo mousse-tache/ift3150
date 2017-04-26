@@ -41,7 +41,7 @@ class BiBlerWrapper(object):
 
 
     @staticmethod
-    def exportString(self, bibtex, format):
+    def exportString(self, bibtex, exportFormat):
         '''
 
         Takes a BibTeX string and outputs a string to the specified format
@@ -52,7 +52,7 @@ class BiBlerWrapper(object):
         '''
         biblerapp=BiBlerWrapper.__getBiblerApp()
         biblerapp.addEntry(bibtex)
-        return biblerapp.exportString(format)
+        return biblerapp.exportString(exportFormat)
          
     @staticmethod
     def previewEntry(self,bibtex):

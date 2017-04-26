@@ -1,6 +1,6 @@
 \beamer@endinputifotherversion {3.36pt}
 \select@language {english}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{Some \LaTeX {} Examples}{18}{0}{2}
-\beamer@subsectionintoc {2}{1}{Tables and Figures}{18}{0}{2}
-\beamer@subsectionintoc {2}{2}{Mathematics}{19}{0}{2}
+\beamer@sectionintoc {2}{Some \LaTeX {} Examples}{20}{0}{2}
+\beamer@subsectionintoc {2}{1}{Tables and Figures}{20}{0}{2}
+\beamer@subsectionintoc {2}{2}{Mathematics}{21}{0}{2}

@@ -22,6 +22,7 @@ abspath = os.path.dirname("/var/www/html/ift3150/")
 sys.path.append(abspath)
 os.chdir(abspath)
 import web
+from utils.settings import ExportFormat
 from bibwrap import BiBlerWrapper
 
 urls = (
@@ -58,22 +59,22 @@ class GetBibTeX:
 class BibTeXtoSQL:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.exportString(self, data, 'sql')
+        return BiBlerWrapper.exportString(self, data, ExportFormat.SQL)
 
 class BibTeXtoCSV:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.exportString(self, data, 'csv')
+        return BiBlerWrapper.exportString(self, data, ExportFormat.CSV)
 
 class BibTeXtoHTML:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode())
-        return BiBlerWrapper.exportString(self, data, 'html')
+        return BiBlerWrapper.exportString(self, data, ExportFormat.HTML)
 
 class BibTeXtoBibTeX:
     def POST(self,code):
         data = urllib.parse.unquote_plus(web.data().decode('utf-8'))
-        return BiBlerWrapper.exportString(self, data, 'bib')
+        return BiBlerWrapper.exportString(self, data, ExportFormat.BIBTEX)
 
 class PreviewEntry:
     def POST(self,code):

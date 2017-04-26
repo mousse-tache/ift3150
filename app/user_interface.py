@@ -12,7 +12,7 @@ This module represents the API of the application.
 from app.app_interface import IApplication
 from app.manager import ReferenceManager
 from app.command import AddCommand, CommandExecutor, DeleteCommand, DuplicateCommand, ExportCommand, GenerateAllKeysCommand, ImportCommand, \
-                    OpenCommand, PreviewCommand, SearchCommand, SortCommand, UndoCommand, UpdateCommand, ValidateAllCommand
+                    OpenCommand, PreviewCommand, SearchCommand, SortCommand, UndoCommand, UpdateCommand, ValidateAllCommand, ExportStringCommand
 from app.field_name import FieldName
 from app.bibtex_parser import BibTeXParser
 from utils.settings import Preferences
