@@ -489,7 +489,7 @@ class Abstract(Field):
     The field for the abstract.
     """
     def __init__(self, value = ''):
-        super(Abastract, self).__init__(FieldName.Abstract, value)
+        super(Abstract, self).__init__(FieldName.Abstract, value)
         
     def format(self):
         self.value = self.value.replace(' ', '')

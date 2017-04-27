@@ -10,7 +10,7 @@ This module contains all the commands of BiBler.
 It implements the Command design pattern.
 """
 
-from .impex import BibTeXImporter, CSVImporter, EndNoteImporter, BibTeXExporter, CSVExporter, HTMLExporter, MySQLExporter
+from .impex import BibTeXImporter, CSVImporter, EndNoteImporter, BibTeXExporter, CSVExporter, HTMLExporter, MySQLExporter, BibTeXStringExporter, CSVStringExporter, HTMLStringExporter, MySQLStringExporter
 from .entry import EntryIdGenerator
 from utils import settings
 from utils.settings import Preferences
@@ -110,6 +110,27 @@ class ExportCommand(Command):
             exporter = MySQLExporter
         self.total = exporter(self.path, self.manager.iterEntries()).export()
         return self.total > 0
+
+class ExportStringCommand(Command):
+    def __init__(self, manager, exportFormat):
+        """
+        (Constructor)
+        """
+        super(ExportStringCommand, self).__init__(manager)
+        self.exportFormat = exportFormat
+        self.total = ""
+
+    def execute(self):
+        if self.exportFormat == settings.ExportFormat.BIBTEX:
+            exporter = BibTeXStringExporter
+        elif self.exportFormat == settings.ExportFormat.CSV:
+            exporter = CSVStringExporter
+        elif self.exportFormat == settings.ExportFormat.HTML:
+            exporter = HTMLStringExporter
+        elif self.exportFormat == settings.ExportFormat.SQL:
+            exporter = MySQLStringExporter
+        self.total = exporter("", self.manager.iterEntries()).export()
+        return self.total
 
 class GenerateAllKeysCommand(Command):
     def __init__(self, manager):
